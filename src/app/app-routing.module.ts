@@ -4,7 +4,23 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () => import('./folder/tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'pilotos',
+    loadChildren: () => import('./folder/pilotos/pilotos.module').then( m => m.PilotosPageModule)
+  },
+  {
+    path: 'circuitos',
+    loadChildren: () => import('./folder/circuitos/circuitos.module').then( m => m.CircuitosPageModule)
+  },
+  {
+    path: 'apuestas',
+    loadChildren: () => import('./folder/apuestas/apuestas.module').then( m => m.ApuestasPageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./folder/home/home.module').then( m => m.HomePageModule)
   }
 ];
 @NgModule({

@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!--<ion-avatar slot="start" style="width: 200px;">
+      <img src="../../../assets/images/logo1.png" alt="logo">
+    </ion-avatar>-->
+    <ion-title class="text-center">Bienvenido</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">home</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!--<swiper-container>
+    <swiper-slide>Slide 1</swiper-slide>
+    <swiper-slide>Slide 2</swiper-slide>
+    <swiper-slide>Slide 3</swiper-slide>
+    ...
+  </swiper-container>-->
+
+  <img src="../../../assets/images/logo.png" class="logo">
+  <swiper-container>
+    <swiper-slide>
+      <div class="slide-content">
+        <img src="../../../assets/images/home.avif" alt="Bienvenida" class="fondo">
+        <div class="text-overlay">
+          <h3><b>Bienvenido a F1Bets</b></h3>
+          <p><i>Estás registrado como:</i></p>
+          <p><i>Desliza a la derecha para ver más ></i></p>
+        </div>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="slide-content">
+        <img src="../../../assets/images/pilotos.jpg" alt="Pilotos" class="fondo">
+        <div class="text-overlay">
+          <h3><b>Lista de pilotos</b></h3>
+          <p>Lista de pilotos en la temporada actual de F1</p>
+          <p><i>Desliza a la derecha para ver más ></i></p>
+        </div>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="slide-content">
+        <img src="../../../assets/images/circuito.avif" alt="Pilotos" class="fondo">
+        <div class="text-overlay">
+          <h3><b>Lista de circuitos</b></h3>
+          <p>Donde puedes apostar qué piloto ganará en cada circuito</p>
+          <p><i>Desliza a la derecha para ver más ></i></p>
+        </div>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="slide-content">
+        <img src="../../../assets/images/apuesta.jpg" alt="Pilotos" class="fondo">
+        <div class="text-overlay">
+          <h3><b>Apuestas realizadas</b></h3>
+          <p>Donde podrás ver una lista de las apuestas que has realizado, y confimarlas</p>
+        </div>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+  
+</ion-content>
