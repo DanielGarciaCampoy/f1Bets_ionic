@@ -10,12 +10,16 @@ import { AppComponent } from './app.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { register } from 'swiper/element/bundle';
+import { CoreModule } from './core/core.module';
 
 register();
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicModule],
+  imports: [
+    BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicModule,
+    CoreModule
+  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

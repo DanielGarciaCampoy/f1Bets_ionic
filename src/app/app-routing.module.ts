@@ -4,24 +4,28 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./folder/tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () => import('./pages/folder/tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
     path: 'pilotos',
-    loadChildren: () => import('./folder/pilotos/pilotos.module').then( m => m.PilotosPageModule)
+    loadChildren: () => import('./pages/folder/pilotos/pilotos.module').then( m => m.PilotosPageModule)
   },
   {
     path: 'circuitos',
-    loadChildren: () => import('./folder/circuitos/circuitos.module').then( m => m.CircuitosPageModule)
+    loadChildren: () => import('./pages/folder/circuitos/circuitos.module').then( m => m.CircuitosPageModule)
   },
   {
     path: 'apuestas',
-    loadChildren: () => import('./folder/apuestas/apuestas.module').then( m => m.ApuestasPageModule)
+    loadChildren: () => import('./pages/folder/apuestas/apuestas.module').then( m => m.ApuestasPageModule)
   },
   {
     path: 'home',
-    loadChildren: () => import('./folder/home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/folder/home/home.module').then( m => m.HomePageModule)
+  },  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   }
+
 ];
 @NgModule({
   imports: [
