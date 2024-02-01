@@ -11,6 +11,9 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { register } from 'swiper/element/bundle';
 import { CoreModule } from './core/core.module';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { environment } from 'src/environments/environment';
 
 register();
 
@@ -18,7 +21,9 @@ register();
   declarations: [AppComponent],
   imports: [
     BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicModule,
-    CoreModule
+    CoreModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore())
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
