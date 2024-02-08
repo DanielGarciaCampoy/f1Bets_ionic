@@ -23,7 +23,7 @@ export class PilotosPage implements OnInit {
 
   ngOnInit(): void {
     this.driversSvc.getDrivers().subscribe(drivers => {
-      console.log(drivers);
+      this.drivers = drivers;
     })
   }
 

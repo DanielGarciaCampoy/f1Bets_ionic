@@ -11,5 +11,10 @@
     </ion-toolbar>
   </ion-header>
   
+  <ion-item *ngFor="let driver of drivers">
+    <ion-label>{{ driver.name }}</ion-label>
+    <ion-label>{{ driver.team }}</ion-label>
+    <ion-label>{{ driver.yearBirth }}</ion-label>
+  </ion-item>
   
 </ion-content>
