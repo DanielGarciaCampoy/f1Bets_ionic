@@ -10,4 +10,12 @@
       <ion-title size="large">circuitos</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-item *ngFor="let circuit of circuits">
+    <ion-label>{{ circuit.nameCircuit }}</ion-label>
+    <ion-label>{{ circuit.country }}</ion-label>
+    <ion-label>{{ circuit.laps }}</ion-label>
+    <ion-label>{{ circuit.length }}</ion-label>
+  </ion-item>
+
 </ion-content>

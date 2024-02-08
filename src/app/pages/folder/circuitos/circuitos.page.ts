@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import Circuit from 'src/app/core/interfaces/circuit.interface';
+import { CircuitsService } from 'src/app/core/services/circuits.service';
 
 @Component({
   selector: 'app-circuitos',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CircuitosPage implements OnInit {
 
-  constructor() { }
+  circuits: Circuit[] | undefined;
 
-  ngOnInit() {
+  constructor(
+    private circuitsSvc: CircuitsService
+  ) { }
+
+  ngOnInit(): void {
+    this.circuitsSvc.getCircuits().subscribe(circuits => {
+      this.circuits = circuits;
+    })
   }
 
 }
