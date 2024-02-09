@@ -3,4 +3,5 @@ export default interface Driver {
     name: string;
     team: string;
     yearBirth: number;
+    picture?:string;
 }

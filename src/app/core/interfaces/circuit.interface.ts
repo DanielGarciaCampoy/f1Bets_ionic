@@ -4,4 +4,5 @@ export default interface Circuit {
     country:string;
     laps:number;
     length:number;
+    picture?:string;
 }
