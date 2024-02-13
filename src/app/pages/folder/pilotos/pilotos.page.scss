@@ -12,5 +12,48 @@ ion-list {
 ion-card {
     display: inline-block;
     width: 250px;
+    transition: background-color 0.3s ease;
     box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+ion-row.titulo ion-label { // ion-label del ion row
+    color: white;
+    font-size: 1.5em;
+}
+
+ion-row.titulo {
+    margin-left: 4%;
+}
+
+ion-row.subtitulo ion-label { // ion-label del ion row
+    font-size: 1.2em;
+}
+
+ion-row.subtitulo {
+    margin-left: 2%;
+}
+
+// al pasar el cursor por encima
+ion-card:hover {
+    background-color: #383a3e;
+    cursor: pointer;
+    transition: 0.5;
+}
+
+// imagenes
+.zoom-div {
+    overflow: hidden;
+}
+
+.zoom-img {
+    transition: transform 0.5s;
+}
+
+.zoom-div:hover .zoom-img {
+    transform: scale(1.2);
+}
+
+// modal
+ion-button ion-icon {
+    transform: scale(1.7);
 }

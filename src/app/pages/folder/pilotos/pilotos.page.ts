@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { DriversService } from 'src/app/core';
 import Driver from 'src/app/core/interfaces/driver.interface';
 
@@ -8,6 +9,11 @@ import Driver from 'src/app/core/interfaces/driver.interface';
   styleUrls: ['./pilotos.page.scss'],
 })
 export class PilotosPage implements OnInit {
+  isModalOpen = false;
+
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
 
   drivers: Driver[] | undefined;
 
