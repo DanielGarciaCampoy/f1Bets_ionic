@@ -9,13 +9,18 @@ import Driver from 'src/app/core/interfaces/driver.interface';
   styleUrls: ['./pilotos.page.scss'],
 })
 export class PilotosPage implements OnInit {
-  isModalOpen = false;
-
-  setOpen(isOpen: boolean) {
-    this.isModalOpen = isOpen;
-  }
 
   drivers: Driver[] | undefined;
+  selectedDriver: any;
+
+  isModalOpen = false;
+
+  setOpen(isOpen: boolean, driver?: any) {
+    this.isModalOpen = isOpen;
+    if (driver) {
+      this.selectedDriver = driver;
+    }
+  }
 
   constructor(
     private driversSvc: DriversService
