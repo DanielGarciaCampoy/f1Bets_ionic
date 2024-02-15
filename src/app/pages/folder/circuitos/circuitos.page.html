@@ -11,11 +11,46 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-item *ngFor="let circuit of circuits">
+  <ion-list>
+    <ion-card *ngFor="let circuit of circuits" class="bordes">
+      <ion-row>
+        <ion-col>
+          <div *ngIf="circuit" class="zoom-div">
+            <img *ngIf="!circuit.picture" src="https://ionicframework.com/docs/img/demos/avatar.svg" class="bordes zoom-img">
+            <img *ngIf="circuit.picture" [src]="circuit.picture" class="bordes">
+          </div>
+        </ion-col>
+        <ion-col>
+          <ion-row class="mt-4">
+            <div>
+              <ion-title class="color-white"><b>{{ circuit.nameCircuit }},</b></ion-title>
+              <ion-title class="color-white">{{ circuit.country }}</ion-title>
+            </div>
+          </ion-row>
+          <div class="ml-7">
+            <ion-row class="mt-7">
+              <ion-label class="color-white">Vueltas:</ion-label>&nbsp;<ion-label>{{ circuit.laps }}</ion-label>
+            </ion-row>
+            <ion-row class="mt-4">
+              <ion-label class="color-white">Longitud:</ion-label>&nbsp;<ion-label>{{ circuit.length }}km</ion-label>
+            </ion-row>
+            <ion-row class="mt-7">
+              <ion-button expand="block" color="success">
+                Apostar &nbsp;
+                <ion-icon name="cash-outline"></ion-icon>
+              </ion-button>
+            </ion-row>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-list>
+
+  <!--<ion-item *ngFor="let circuit of circuits">
     <ion-label>{{ circuit.nameCircuit }}</ion-label>
     <ion-label>{{ circuit.country }}</ion-label>
     <ion-label>{{ circuit.laps }}</ion-label>
     <ion-label>{{ circuit.length }}</ion-label>
-  </ion-item>
+  </ion-item>-->
 
 </ion-content>
