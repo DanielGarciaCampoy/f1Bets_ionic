@@ -10,4 +10,13 @@
       <ion-title size="large">apuestas</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-list *ngFor="let apuesta of apuestas">
+    {{ apuesta.id }}
+    {{ apuesta.betMoney }}
+    {{ apuesta.idDriver }}
+    <!--{{ (getDriverById(apuesta.idDriver) | async )?.name }}-->
+    {{ ( driver$ | async)?.name }}
+  </ion-list>
+
 </ion-content>
