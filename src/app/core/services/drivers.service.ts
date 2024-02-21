@@ -29,7 +29,7 @@ export class DriversService {
       try {
         var driver = (await this.firebase.getDocument('driver', id));
         resolve({
-          id: driver.data['id'],
+          id: driver.id,
           name: driver.data['name'],
           team: driver.data['team'],
           yearBirth: driver.data['yearBirth'],
