@@ -14,12 +14,12 @@ export class ApuestasService {
   ) { }
 
   addApuesta(apuesta: Apuesta) {
-    const apuestaRef = collection(this.firestore, 'apuestas');
+    const apuestaRef = collection(this.firestore, 'bets');
     return addDoc(apuestaRef, apuesta);
   }
 
   getApuestas(): Observable<Apuesta[]> {
-    const apuestaRef = collection(this.firestore, 'apuestas');
+    const apuestaRef = collection(this.firestore, 'bets');
     return collectionData(apuestaRef, { idField: 'id' }) as Observable<Apuesta[]>;
   }
 
