@@ -21,11 +21,11 @@ export interface FirestoreImages{
 
 }
 
-export const FIRESTORE_CARERS_COLLECTION = 'clinicaParadise-carers';
-export const FIRESTORE_RESIDENTS_COLLECTION = 'clinicaParadise-residents';
-export const FIRESTORE_MANAGEMENT_COLLECTION = 'clinicaParadise-residentManages';
-export const FIRESTORE_IMAGES_COLLECTION = 'clinicaParadise-images';
-export const FIRESTORAGE_PREFIX_PATH = 'clinicaParadise-images';
+export const FIRESTORE_BETS_COLLECTION = 'f1Bets-bets';
+export const FIRESTORE_CIRCUIT_COLLECTION = 'f1Bets-circuit';
+export const FIRESTORE_DRIVER_COLLECTION = 'f1Bets-driver';
+export const FIRESTORE_IMAGES_COLLECTION = 'f1Bets-images';
+export const FIRESTORAGE_PREFIX_PATH = 'f1Bets-images';
 
 
 @Injectable({providedIn: 'root'})
