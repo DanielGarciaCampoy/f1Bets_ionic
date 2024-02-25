@@ -1,1 +1,32 @@
-<ion-grid></ion-grid>
+<ion-grid class="login">
+    <ion-row>
+      <ion-col>
+        <form [formGroup]="form" (ngSubmit)="onSignIn()">
+          <h1>Iniciar sesión</h1>
+          <!--<div class="form-button right">
+            <ion-button (click)="register()" color="primary" fill="clear">
+              <small>{{'register.register' }}</small>
+            </ion-button>
+          </div>--> 
+          
+          <ion-list>
+            <ion-item>
+              <ion-label position="stacked">
+                Email
+              </ion-label>
+              <ion-input [enterkeyhint]="'next'" autocomplete="email" type="text" formControlName="email"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">
+                password
+              </ion-label>
+              <ion-input (keyup.enter)="form.valid?onSignIn():null" [enterkeyhint]="'enter'" autocomplete="password" type="password" formControlName="password"></ion-input>
+            </ion-item>
+          </ion-list> 
+          <div class="form-button right">
+            <ion-button [disabled]="!form.valid" (click)="onSignIn()">{{'login.send' }}</ion-button>
+          </div>
+        </form>    
+      </ion-col>
+    </ion-row>
+  </ion-grid>

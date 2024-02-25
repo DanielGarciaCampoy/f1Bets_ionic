@@ -32,12 +32,12 @@ export const FIRESTORAGE_PREFIX_PATH = 'f1Bets-images';
 export abstract class FirebaseService{
 
   protected active=false;
-  protected app: FirebaseApp | undefined;
-  protected db: Firestore | undefined;
-  protected webStorage: FirebaseStorage | undefined;
-  protected auth:Auth | undefined;
+  protected app!: FirebaseApp;
+  protected db!: Firestore;
+  protected webStorage!: FirebaseStorage;
+  protected auth!:Auth;
   protected analytics = null;
-  protected user:User | undefined;
+  protected user!:User;
   protected _isLogged = new BehaviorSubject<boolean>(false);
   public isLogged$ = this._isLogged.asObservable();
 

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
-import { PasswordValidation } from 'src/app/core/utils/password-validator';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,39 +11,26 @@ import { PasswordValidation } from 'src/app/core/utils/password-validator';
 })
 export class SignupComponent  implements OnInit {
 
-  form: FormGroup | undefined;
+  formReg: FormGroup;
   constructor(
-    private formBuilder: FormBuilder,
-    private modalCtrl: ModalController
+    private userService: UserService,
+    private router: Router
   ) {
-    this.form = this.formBuilder.group({
-      email:["", [Validators.required, Validators.email]],
-      password:["", Validators.required],
-      confirmPassword:["", Validators.required]
-    },{validator:[PasswordValidation.passwordMatch, PasswordValidation.passwordProto]});
+    this.formReg = new FormGroup({
+      email: new FormControl(),
+      password: new FormControl()
+    })
     }
 
   ngOnInit() {}
 
-  onRegister() {
-    this.modalCtrl.dismiss({
-      email:this.form?.value.email,
-      username:this.form?.value.email,
-      password:this.form?.value.password,
-      picture:this.form?.value.picture
-    }, 'ok');
-  }
-
-  hasFormError(error: string) {
-    return this.form?.errors && Object.keys(this.form.errors).filter(e=>e==error).length==1;
-  }
-
-  errorsToArray(errors: {}){
-   
-    if(errors && !('required' in errors))
-      return [Object.keys(errors)[0]];
-    else
-      return [];
+  onSubmit() {
+    this.userService.register(this.formReg.value)
+      .then(response => {
+        console.log(response);
+        this.router.navigate(['/signin']);
+      })
+      .catch(error=> console.log(error));
   }
 
 }

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { UserService } from 'src/app/core/services/user.service';
+import { SignupComponent } from '../signup/signup.component';
+import { FirebaseService } from 'src/app/core/services/firebase/firebase-service';
 
 @Component({
   selector: 'app-signin',
@@ -11,61 +13,28 @@ import { UserService } from 'src/app/core/services/user.service';
 })
 export class SigninComponent  implements OnInit {
 
-  form:FormGroup | undefined;
+  form: FormGroup;
+
   constructor(
-    private formBuilder:FormBuilder,
-    private modalCtrl:ModalController,
-    private user:UserService,
-    private router:Router
+    private userSvc: UserService,
+    private router: Router
   ) {
-    this.form = this.formBuilder.group({
-      identifier:["", [Validators.required, Validators.email]],
-      password:["", Validators.required]
-    });
+    this.form = new FormGroup({
+      email: new FormControl(),
+      password: new FormControl()
+    })
   }
 
   ngOnInit() {}
 
-  async register() {
-    const modal = await this.modalCtrl.create({
-      component:SigninComponent,
-      cssClass:"modal-full-right-side"
-    });
-
-    modal.onDidDismiss().then(async(response)=>{
-      try {
-        if(response.role == 'ok') {
-          await this.user.register(response.data);
-          this.router.navigate(['folder/Home'], {replaceUrl:true});
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    });
-    modal.present();
+  onSignIn() {
+    this.userSvc.login(this.form.value)
+      .then(response => {
+        console.log(response);
+        this.router.navigate(['tabs/home'], {replaceUrl:true});
+      })
+      .catch(error => console.log(error));
   }
 
-  async onSignIn(){
-    try {
-      await this.user.login(this.form?.value); // ?
-      this.router.navigate(['folder/Home'], {replaceUrl:true});
-    } catch (error) {
-      console.log(error);
-
-    }
-    
-  }
-
-  hasFormError(error: string){
-    return this.form?.errors && Object.keys(this.form.errors).filter(e=>e==error).length==1;
-  }
-  
-  errorsToArray(errors: {}){
-   
-    if(errors && !('required' in errors))
-      return [Object.keys(errors)[0]];
-    else
-      return [];
-  }
 
 }
