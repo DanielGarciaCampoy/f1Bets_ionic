@@ -17,7 +17,8 @@ export class SigninComponent  implements OnInit {
 
   constructor(
     private userSvc: UserService,
-    private router: Router
+    private router: Router,
+    private modalCtrl:ModalController
   ) {
     this.form = new FormGroup({
       email: new FormControl(),
@@ -34,6 +35,26 @@ export class SigninComponent  implements OnInit {
         this.router.navigate(['tabs/home'], {replaceUrl:true});
       })
       .catch(error => console.log(error));
+  }
+
+  async register() {
+    const modal = await this.modalCtrl.create({
+      component:SignupComponent,
+      cssClass:"modal-full-right-side"
+    });
+
+    modal.onDidDismiss().then(async(response)=>{
+      try {
+        if(response.role=='ok'){
+          await this.userSvc.register(response.data);
+          this.router.navigate(['tabs/home'], {replaceUrl:true});
+        }
+      } catch (error) {
+        console.log(error);
+  
+      }
+    });
+    modal.present();
   }
 
 

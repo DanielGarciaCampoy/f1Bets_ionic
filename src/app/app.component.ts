@@ -31,4 +31,8 @@ export class AppComponent {
   logOut() {
     return this.userSvc.logOut();
   }
+
+  getUser() {
+    return this.userSvc.getUser();
+  }
 }

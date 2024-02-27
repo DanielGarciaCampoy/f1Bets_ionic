@@ -1,3 +1,43 @@
-<p>
-  signup works!
-</p>
+<ion-content>
+  <form [formGroup]="form" (ngSubmit)="onRegister()">
+    <h1>Registrarse</h1>
+    <ion-list>
+      <ion-item lines="none">
+        <ion-label position="stacked">
+          Email<span class="required" *ngIf="form.controls['email'].errors">&nbsp;&#42;</span>
+        </ion-label>
+        <ion-input autocomplete="email" placeHolder="usuario@dominio.com" type="text" formControlName="email"></ion-input>
+        <small
+          class="validationError colorRojo"
+          *ngFor="let error of errorsToArray(form.controls['email'].errors!)">
+            Formato de email incorrecto
+        </small>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label position="stacked">
+          Contraseña<span class="required" *ngIf="form.controls['password'].errors">&nbsp;&#42;</span>
+        </ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+        <small
+          class="validationError colorRojo"
+          *ngIf="hasFormError('passwordProto')">
+            Al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número
+        </small>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label position="stacked">
+          Repetir contraseña<span class="required" *ngIf="form.controls['confirmPassword'].errors">&nbsp;&#42;</span>
+        </ion-label>
+        <ion-input (keyup.enter)="form.valid?onRegister():null" [enterkeyhint]="'enter'" type="password" formControlName="confirmPassword"></ion-input>
+        <small
+          class="validationError colorRojo"
+          *ngIf="hasFormError('passwordMatch') && form.get('confirmPassword')?.value">
+          No coincide la contraseña
+        </small>
+      </ion-item>
+    </ion-list>
+    <div class="form-button">
+      <ion-button [disabled]="!form.valid" (click)="onRegister()">Registrarse</ion-button>
+    </div>
+  </form>
+</ion-content>

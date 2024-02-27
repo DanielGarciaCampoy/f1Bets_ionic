@@ -59,7 +59,7 @@ export class UserService {
   }
 
   public getUser() {
-    return this.user;
+    return this.firebase.getUser();
   }
 
 }

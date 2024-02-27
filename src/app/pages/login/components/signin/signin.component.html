@@ -3,12 +3,6 @@
       <ion-col>
         <form [formGroup]="form" (ngSubmit)="onSignIn()">
           <h1>Iniciar sesión</h1>
-          <!--<div class="form-button right">
-            <ion-button (click)="register()" color="primary" fill="clear">
-              <small>{{'register.register' }}</small>
-            </ion-button>
-          </div>--> 
-          
           <ion-list>
             <ion-item>
               <ion-label position="stacked">
@@ -22,11 +16,20 @@
               </ion-label>
               <ion-input (keyup.enter)="form.valid?onSignIn():null" [enterkeyhint]="'enter'" autocomplete="password" type="password" formControlName="password"></ion-input>
             </ion-item>
-          </ion-list> 
-          <div class="form-button right">
-            <ion-button [disabled]="!form.valid" (click)="onSignIn()">{{'login.send' }}</ion-button>
-          </div>
-        </form>    
+          </ion-list>
+          <ion-row>
+            <ion-col>
+              <div class="form-button right">
+                <ion-button [disabled]="!form.valid" (click)="onSignIn()">Iniciar sesión</ion-button>
+              </div>
+            </ion-col>
+            <ion-col>
+              <div>
+                <ion-button (click)="register()">Crear cuenta</ion-button>
+              </div> 
+            </ion-col>
+          </ion-row>
+        </form>   
       </ion-col>
     </ion-row>
   </ion-grid>
