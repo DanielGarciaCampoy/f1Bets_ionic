@@ -58,8 +58,12 @@ export class UserService {
     .catch(error => console.log(error))
   }
 
+  deleteAccount() {
+    
+  }
+
   public getUser() {
-    return this.firebase.getUser();
+    return this.auth.currentUser;
   }
 
 }
