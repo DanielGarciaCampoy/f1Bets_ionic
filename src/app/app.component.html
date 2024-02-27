@@ -1,6 +1,58 @@
 <body color-theme="dark">
   <ion-app>
+    <ion-header [translucent]="true" *ngIf="folder!='/login'">
+      <ion-toolbar>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-title side="start" style="font-size: 2em;" *ngIf="folder=='/tabs/home'">Bienvenido</ion-title>
+              <ion-title side="start" style="font-size: 2em;" *ngIf="folder=='/tabs/pilotos'">Pilotos</ion-title>
+              <ion-title side="start" style="font-size: 2em;" *ngIf="folder=='/tabs/circuitos'">Circuitos</ion-title>
+              <ion-title side="start" style="font-size: 2em;" *ngIf="folder=='/tabs/apuestas'">Apuestas</ion-title>
+            </ion-col>
+            <ion-col style="display: flex; justify-content: flex-end;">
+              <ion-item style="height: 40px;" id="popover-button" button>
+                <div class="mitad">
+                  <ion-avatar style="width: 30px; height: auto;"><img src="https://ionicframework.com/docs/img/demos/avatar.svg"></ion-avatar>
+                </div>
+                <div class="mitad">
+                  &nbsp;Usuario
+                </div>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <!--POPOVER-->
+        <ion-popover trigger="popover-button" [dismissOnSelect]="true" side="bottom">
+          <ng-template>
+            <ion-content>
+              <ion-list>
+                <ion-item>Sesión iniciada como:</ion-item>
+                <ion-item>
+                  <ion-grid>
+                    <ion-row class="userBtn">
+                      <ion-avatar style="width: 50px; height: 50px;"><img src="https://ionicframework.com/docs/img/demos/avatar.svg"></ion-avatar>
+                    </ion-row>
+                    <ion-row class="userBtn">
+                      <p><b>Email: </b></p>
+                    </ion-row>
+                    <ion-row class="userBtn">
+                      
+                    </ion-row>
+                  </ion-grid>
+                </ion-item>
+                <ion-item [button]="true" [detail]="false" (click)="logOut()">
+                  <ion-icon name="log-out-outline" color="danger"></ion-icon>
+                  <ion-label>&nbsp;&nbsp;<b>Cerrar sesión</b></ion-label>
+                </ion-item>
+              </ion-list>
+            </ion-content>
+          </ng-template>
+        </ion-popover>
+        
+      </ion-toolbar>
+    </ion-header>
 
-    <ion-router-outlet></ion-router-outlet>
+    <ion-router-outlet style="margin-top: 60px;"></ion-router-outlet>
   </ion-app>
 </body>
