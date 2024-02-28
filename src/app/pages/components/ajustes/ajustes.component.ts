@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
+import { Observable } from 'rxjs';
+import { User } from 'src/app/core/models/user.model';
 import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
@@ -9,13 +11,17 @@ import { UserService } from 'src/app/core/services/user.service';
 })
 export class AjustesComponent  implements OnInit {
 
+  user$!: Observable<User | null>;
+
   constructor(
     private userSvc: UserService,
     private modalController: ModalController,
     private alertController: AlertController
   ) { }
 
-  ngOnInit() {}
+  ngOnInit(): void {
+    this.user$ = this.userSvc.getUser();
+  }
   
   deleteAcount() {
     
@@ -25,9 +31,9 @@ export class AjustesComponent  implements OnInit {
     this.modalController.dismiss();
   }
 
-  getUser() {
+  /*getUser() {
     return this.userSvc.getUser();
-  }
+  }*/
 
   logOut() {
     this.modalController.dismiss();

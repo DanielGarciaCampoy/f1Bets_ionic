@@ -16,7 +16,7 @@
                   <ion-avatar style="width: 30px; height: auto;"><img src="https://ionicframework.com/docs/img/demos/avatar.svg"></ion-avatar>
                 </div>
                 <div class="mitad">
-                  &nbsp;{{ getUser()?.email }}
+                  &nbsp;{{ (user$ | async)?.email }}
                 </div>
               </ion-item>
             </ion-col>
@@ -34,7 +34,7 @@
                       <ion-avatar style="width: 50px; height: auto;"><img src="https://ionicframework.com/docs/img/demos/avatar.svg"></ion-avatar>
                     </ion-row>
                     <ion-row class="userBtn">
-                      <p><b>Email:</b> {{ getUser()?.email }}</p>
+                      <p><b>Email:</b> {{ (user$ | async)?.email }}</p>
                     </ion-row>
                     <ion-row class="userBtn">
                       

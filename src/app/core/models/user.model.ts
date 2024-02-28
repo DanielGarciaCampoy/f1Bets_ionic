@@ -11,8 +11,10 @@ export interface UserRegister{
 
 export interface User{
     uid:string;
-    username:string;
+    userName:string;
     email:string;
+    betMoney:number;
+    picture:string;
     /*provider:string;
     token:string,
     first_name:string,

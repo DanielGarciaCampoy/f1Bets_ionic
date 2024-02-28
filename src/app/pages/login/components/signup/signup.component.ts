@@ -20,6 +20,7 @@ export class SignupComponent  implements OnInit {
     private modalCtrl: ModalController
   ) {
     this.form = this.formBuilder.group({
+      userName: [""],
       email: ["", [Validators.required, Validators.email]],
       password: ["", Validators.required],
       confirmPassword:["", Validators.required]
@@ -30,6 +31,7 @@ export class SignupComponent  implements OnInit {
 
   onRegister(){
     this.modalCtrl.dismiss({
+      userName:this.form.value.userName,
       email:this.form.value.email,
       password:this.form.value.password,
     }, 'ok');

@@ -4,6 +4,12 @@
     <ion-list>
       <ion-item lines="none">
         <ion-label position="stacked">
+          Nombre de usuario<span class="required" *ngIf="form.controls['userName'].errors">&nbsp;&#42;</span>
+        </ion-label>
+        <ion-input autocomplete="userName" placeHolder="" type="text" formControlName="userName"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label position="stacked">
           Email<span class="required" *ngIf="form.controls['email'].errors">&nbsp;&#42;</span>
         </ion-label>
         <ion-input autocomplete="email" placeHolder="usuario@dominio.com" type="text" formControlName="email"></ion-input>

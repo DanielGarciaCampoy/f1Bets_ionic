@@ -4,6 +4,8 @@ import { UserService } from './core/services/user.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { AjustesComponent } from './pages/components/ajustes/ajustes.component';
+import { Observable } from 'rxjs';
+import { User } from './core/models/user.model';
 
 register();
 
@@ -14,6 +16,8 @@ register();
 })
 export class AppComponent {
   
+  user$!: Observable<User | null>;
+
   folder: any;
   constructor(
     public userSvc: UserService,
@@ -29,6 +33,10 @@ export class AppComponent {
       },
       error: (err) => console.log(err)
     });
+  }
+
+  ngOnInit(): void {
+    this.user$ = this.userSvc.getUser();
   }
   
   logOut() {
