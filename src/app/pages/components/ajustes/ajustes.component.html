@@ -1,3 +1,33 @@
+<ion-toolbar>
+  <ion-title><b><ion-icon name="settings-outline" color="white"></ion-icon>&nbsp;Ajustes</b></ion-title>
+  <ion-buttons slot="end">
+    <ion-button (click)="closeModal()">
+      <ion-icon color="danger" name="close-outline" class="close"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
 <ion-content>
-  <ion-title>Ajustes</ion-title>
+  <div class="container">
+    <ion-row>
+      <ion-title>Sesión iniciada como:</ion-title>
+    </ion-row>
+    <ion-row class="usuario">
+      <ion-col>
+        <ion-avatar style="width: 80px; height: auto;"><img src="https://ionicframework.com/docs/img/demos/avatar.svg"></ion-avatar>
+      </ion-col>
+      <ion-col size="10">
+        <ion-label><b>Email: </b>{{ getUser()?.email }}</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row class="botones">
+      <ion-col>
+        <ion-button color="danger" (click)="logOut()"><ion-icon name="log-out-outline"></ion-icon>
+          <ion-label>&nbsp;&nbsp;<b>Cerrar sesión</b></ion-label>
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button color="danger" (click)="eliminarCuentaAlert()"><ion-icon name="ban-outline"></ion-icon>&nbsp;<b>ELIMINAR CUENTA</b></ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
 </ion-content>

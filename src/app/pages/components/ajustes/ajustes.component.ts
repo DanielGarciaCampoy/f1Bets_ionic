@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController, ModalController } from '@ionic/angular';
 import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
@@ -9,13 +10,54 @@ import { UserService } from 'src/app/core/services/user.service';
 export class AjustesComponent  implements OnInit {
 
   constructor(
-    private userSvc: UserService
+    private userSvc: UserService,
+    private modalController: ModalController,
+    private alertController: AlertController
   ) { }
 
   ngOnInit() {}
   
   deleteAcount() {
     
+  }
+
+  closeModal() {
+    this.modalController.dismiss();
+  }
+
+  getUser() {
+    return this.userSvc.getUser();
+  }
+
+  logOut() {
+    this.modalController.dismiss();
+    return this.userSvc.logOut();
+  }
+
+  async eliminarCuentaAlert() {
+    const alert = await this.alertController.create({
+      header: '¿Está seguro?',
+      message: 'Esta acción eliminará tu cuenta permanentemente',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'rojo',
+        },
+        {
+          text: 'Aceptar',
+          handler: () => {
+            this.modalController.dismiss();
+            this.eliminarCuenta();
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
+  eliminarCuenta() {
+    return this.userSvc.deleteAccount();
   }
 
 }

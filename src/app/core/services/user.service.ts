@@ -58,8 +58,17 @@ export class UserService {
     .catch(error => console.log(error))
   }
 
-  deleteAccount() {
-    
+  async deleteAccount() {
+    try {
+      const user = this.auth.currentUser;
+      if (user) {
+        await user.delete();
+        console.log('Cuenta eliminada');
+        this.router.navigate(['/login'], {replaceUrl:true});
+      }
+    } catch (error) {
+      console.error("Error: ", error);
+    }
   }
 
   public getUser() {
