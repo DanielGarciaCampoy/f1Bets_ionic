@@ -6,7 +6,7 @@ import { User, UserLogin, UserRegister } from '../models/user.model';
 import { FirebaseService } from './firebase/firebase-service';
 import { LocalStorageService } from './local-storage.service';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@angular/fire/auth';
-import { DocumentData, Firestore, addDoc, collection, collectionData, getDocs, query, where } from '@angular/fire/firestore';
+import { DocumentData, Firestore, addDoc, collection, collectionData, deleteDoc, doc, getDocs, query, where } from '@angular/fire/firestore';
 
 
 
@@ -64,25 +64,6 @@ export class UserService {
     
   }
 
-  /*register(data:UserRegister) {
-    return new Promise<string>(async (resolve, reject)=>{
-      try {
-        var _user:UserCredential = await createUserWithEmailAndPassword(this.auth, data.email, data.password);
-        await this.firebase.createDocumentWithId('user',
-          {
-            uid:_user.user.uid,
-            userName:data.userName,
-            email:data.email,
-            picture:"",
-            password:""
-          }, _user.user.uid);
-      } catch(error) {
-        reject(error);
-      }
-    }); 
-    
-  }*/
-
   login({ email, password }: any) {
     this._isLogged.next(true);
     return signInWithEmailAndPassword(this.auth, email, password);
@@ -102,7 +83,15 @@ export class UserService {
     try {
       const user = this.auth.currentUser;
       if (user) {
+        // eliminar documento
+        const userQuery = await getDocs(query(collection(this.firestore, 'user'), where('uid', '==', user.uid)));
+
+        const userDoc = userQuery.docs[0];
+        deleteDoc(doc(this.firestore, 'user', userDoc.id));
+
+        // eliminar cuenta
         await user.delete();
+        
         console.log('Cuenta eliminada');
         this.router.navigate(['/login'], {replaceUrl:true});
       }
@@ -112,8 +101,6 @@ export class UserService {
   }
 
   public getUser(): Observable<User | null> {
-    // return this.auth.currentUser?.uid;
-    // return collectionData(userRef, { idField: 'id' });
     const userRef = collection(this.firestore, 'user');
     const uid = this.auth.currentUser?.uid;
 
