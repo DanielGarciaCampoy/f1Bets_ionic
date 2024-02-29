@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DocumentData, DocumentReference, Firestore, addDoc, collection, collectionData, doc, getDoc } from '@angular/fire/firestore';
+import { DocumentData, DocumentReference, Firestore, addDoc, collection, collectionData, deleteDoc, doc, getDoc } from '@angular/fire/firestore';
 import Driver from '../interfaces/driver.interface';
 import { Observable, from, map } from 'rxjs';
 import Apuesta from '../interfaces/apuesta.interface';
@@ -39,6 +39,11 @@ export class DriversService {
         reject(error);
       }
     });
+  }
+
+  deleteDriver(driver: Driver) {
+    const driverDocRef = doc(this.firestore, `driver/${driver.id}`);
+    return deleteDoc(driverDocRef);
   }
 
 }

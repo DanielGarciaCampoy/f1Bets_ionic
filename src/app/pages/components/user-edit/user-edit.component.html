@@ -1,0 +1,32 @@
+<ion-toolbar>
+    <ion-title><b><ion-icon name="create-outline" color="white"></ion-icon>&nbsp;Editar perfil</b></ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon color="danger" name="close-outline" class="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+</ion-toolbar>
+<ion-content class="ion-padding">
+    <ion-row>
+        <ion-col size="4">
+            <!--img-->
+            <input id="fileLoader" type="file" #fileLoader name="files" title="Load Files" hidden>
+            <!--<ion-img (click)="changePic(fileLoader)" *ngIf="currentImage.value" [src]="currentImage$ | async"></ion-img>
+            <ion-img (click)="changePic(fileLoader)" *ngIf="!currentImage.value" src="https://ionicframework.com/docs/img/demos/avatar.svg"></ion-img>-->
+        </ion-col>
+        <ion-col size="8">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
+                <ion-item>
+                    <ion-label position="floating">Nombre de usuario:</ion-label>
+                    <ion-input type="text" placeholder="" formControlName="userName"></ion-input>
+                </ion-item>
+                <ion-button [disabled]="!form.valid" type="submit" class="margin25" color="success">
+                    <p>Editar</p><ion-icon name="send-outline"></ion-icon>
+                </ion-button>
+            </form>
+        </ion-col>
+    </ion-row>
+</ion-content>
+<ion-footer>
+
+</ion-footer>

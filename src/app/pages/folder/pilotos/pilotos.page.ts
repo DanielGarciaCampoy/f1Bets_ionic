@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { DriversService } from 'src/app/core';
 import Driver from 'src/app/core/interfaces/driver.interface';
 
@@ -23,7 +23,8 @@ export class PilotosPage implements OnInit {
   }
 
   constructor(
-    private driversSvc: DriversService
+    private driversSvc: DriversService,
+    private alertController: AlertController
   ) {
     this.drivers = [{
       name: 'name',
@@ -36,6 +37,34 @@ export class PilotosPage implements OnInit {
     this.driversSvc.getDrivers().subscribe(drivers => {
       this.drivers = drivers;
     })
+  }
+
+  async deleteDriverAlert() {
+    const alert = await this.alertController.create({
+      header: '¿Está seguro?',
+      message: 'Eliminarás este piloto permanentemente',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'rojo',
+        },
+        {
+          text: 'Aceptar',
+          handler: () => {
+            this.isModalOpen = false;
+            this.deleteDriver(this.selectedDriver);
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
+  async deleteDriver(driver: Driver) {
+    const response = await this.driversSvc.deleteDriver(driver);
+    console.log(response);
+    this.isModalOpen = false;
   }
 
 }

@@ -22,18 +22,10 @@ export class AjustesComponent  implements OnInit {
   ngOnInit(): void {
     this.user$ = this.userSvc.getUser();
   }
-  
-  deleteAcount() {
-    
-  }
 
   closeModal() {
     this.modalController.dismiss();
   }
-
-  /*getUser() {
-    return this.userSvc.getUser();
-  }*/
 
   logOut() {
     this.modalController.dismiss();

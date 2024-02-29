@@ -10,6 +10,7 @@ import { LoginPage } from './login.page';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { AjustesComponent } from '../components/ajustes/ajustes.component';
+import { UserEditComponent } from '../components/user-edit/user-edit.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,6 @@ import { AjustesComponent } from '../components/ajustes/ajustes.component';
     LoginPageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [LoginPage, SigninComponent, SignupComponent, AjustesComponent]
+  declarations: [LoginPage, SigninComponent, SignupComponent, AjustesComponent, UserEditComponent]
 })
 export class LoginPageModule {}

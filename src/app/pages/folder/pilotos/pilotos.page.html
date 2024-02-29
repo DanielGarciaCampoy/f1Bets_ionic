@@ -1,11 +1,3 @@
-<!--
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title class="text-center">Pilotos</ion-title>
-  </ion-toolbar>
-</ion-header>
--->
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -47,7 +39,7 @@
             <ion-title>Detalles</ion-title>
             <ion-buttons slot="end">
               <ion-button (click)="setOpen(false)">
-                <ion-icon color="danger" name="close-outline"></ion-icon>
+                <ion-icon color="danger" name="close-outline" class="close"></ion-icon>
               </ion-button>
             </ion-buttons>
           </ion-toolbar>
@@ -78,6 +70,9 @@
                 </ion-col>
               </ion-row>
             </ion-col>
+          </ion-row>
+          <ion-row style="margin-left: 5%; margin-right: 5%; margin-top: 5%;">
+            <ion-button color="danger" (click)="deleteDriverAlert()"><ion-icon name="ban-outline"></ion-icon>&nbsp;<b>ELIMINAR</b></ion-button>
           </ion-row>
         </ion-content>
       </ng-template>
