@@ -15,7 +15,7 @@
             <ion-img (click)="changePic(fileLoader)" *ngIf="!currentImage.value" src="https://ionicframework.com/docs/img/demos/avatar.svg"></ion-img>-->
         </ion-col>
         <ion-col size="8">
-            <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
+            <!--<form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
                 <ion-item>
                     <ion-label position="floating">Nombre de usuario:</ion-label>
                     <ion-input type="text" placeholder="" formControlName="userName"></ion-input>
@@ -23,7 +23,7 @@
                 <ion-button [disabled]="!form.valid" type="submit" class="margin25" color="success">
                     <p>Editar</p><ion-icon name="send-outline"></ion-icon>
                 </ion-button>
-            </form>
+            </form>-->
         </ion-col>
     </ion-row>
 </ion-content>
