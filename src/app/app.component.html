@@ -16,7 +16,7 @@
                   <ion-avatar style="width: 30px; height: auto;"><img src="https://ionicframework.com/docs/img/demos/avatar.svg"></ion-avatar>
                 </div>
                 <div class="mitad">
-                  &nbsp;{{ (user$ | async)?.email }}
+                  &nbsp;{{ (user$ | async)?.userName }}&nbsp;({{ (user$ | async)?.betMoney }}€)
                 </div>
               </ion-item>
             </ion-col>
@@ -31,10 +31,15 @@
                 <ion-item>
                   <ion-grid>
                     <ion-row class="userBtn">
-                      <ion-avatar style="width: 50px; height: auto;"><img src="https://ionicframework.com/docs/img/demos/avatar.svg"></ion-avatar>
+                      <ion-col>
+                        <ion-avatar style="width: 50px; height: auto;"><img src="https://ionicframework.com/docs/img/demos/avatar.svg"></ion-avatar>
+                      </ion-col>
+                      <ion-col size="8">
+                        <p style="margin-top: 15%;"><b>{{ (user$ | async)?.userName }}</b></p>
+                      </ion-col>
                     </ion-row>
                     <ion-row class="userBtn">
-                      <p><b>Email:</b> {{ (user$ | async)?.email }}</p>
+                      <p><b>Email: </b>{{ (user$ | async)?.email }}</p>
                     </ion-row>
                     <ion-row class="userBtn">
                       

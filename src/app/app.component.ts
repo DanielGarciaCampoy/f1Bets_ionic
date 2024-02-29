@@ -29,14 +29,13 @@ export class AppComponent {
         if (value instanceof NavigationEnd) {
           console.log(value.url);
           this.folder = value.url;
+
+          // inicializar user
+          this.user$ = this.userSvc.getUser();
         }
       },
       error: (err) => console.log(err)
     });
-  }
-
-  ngOnInit(): void {
-    this.user$ = this.userSvc.getUser();
   }
   
   logOut() {
