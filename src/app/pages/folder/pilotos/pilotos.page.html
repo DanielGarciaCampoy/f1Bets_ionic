@@ -72,7 +72,12 @@
             </ion-col>
           </ion-row>
           <ion-row style="margin-left: 5%; margin-right: 5%; margin-top: 5%;">
-            <ion-button color="danger" (click)="deleteDriverAlert()"><ion-icon name="ban-outline"></ion-icon>&nbsp;<b>ELIMINAR</b></ion-button>
+            <ion-col>
+              <ion-button color="warning" class="botones" (click)="onEditDriver(selectedDriver)"><ion-icon name="create-outline"></ion-icon>&nbsp;<b>EDITAR</b></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button color="danger" class="botones" (click)="deleteDriverAlert()"><ion-icon name="ban-outline"></ion-icon>&nbsp;<b>ELIMINAR</b></ion-button>
+            </ion-col>
           </ion-row>
         </ion-content>
       </ng-template>

@@ -33,6 +33,10 @@ ion-row.subtitulo {
     margin-left: 2%;
 }
 
+ion-button.botones {
+    min-width: 200px;
+}
+
 // al pasar el cursor por encima
 ion-card:hover {
     background-color: #383a3e;

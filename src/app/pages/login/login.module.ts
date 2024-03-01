@@ -11,6 +11,7 @@ import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { AjustesComponent } from '../components/ajustes/ajustes.component';
 import { UserEditComponent } from '../components/user-edit/user-edit.component';
+import { DriverEditComponent } from '../components/driver-edit/driver-edit.component';
 
 @NgModule({
   imports: [
@@ -20,6 +21,6 @@ import { UserEditComponent } from '../components/user-edit/user-edit.component';
     LoginPageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [LoginPage, SigninComponent, SignupComponent, AjustesComponent, UserEditComponent]
+  declarations: [LoginPage, SigninComponent, SignupComponent, AjustesComponent, UserEditComponent, DriverEditComponent]
 })
 export class LoginPageModule {}

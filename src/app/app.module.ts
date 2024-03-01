@@ -18,6 +18,8 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SigninComponent } from './pages/login/components/signin/signin.component';
 import { getStorage, provideStorage } from '@angular/fire/storage';
+import { Camera } from '@awesome-cordova-plugins/camera/ngx';
+import { File } from '@awesome-cordova-plugins/file/ngx';
 
 register();
 
@@ -32,7 +34,7 @@ register();
     provideAuth(() => getAuth()),
     provideStorage(() => getStorage())
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, Camera, File],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

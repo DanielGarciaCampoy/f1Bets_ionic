@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { DriversService } from 'src/app/core';
 import Driver from 'src/app/core/interfaces/driver.interface';
+import { DriverEditComponent } from '../../components/driver-edit/driver-edit.component';
 
 @Component({
   selector: 'app-pilotos',
@@ -24,7 +25,8 @@ export class PilotosPage implements OnInit {
 
   constructor(
     private driversSvc: DriversService,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private modalCtrl: ModalController
   ) {
     this.drivers = [{
       name: 'name',
@@ -65,6 +67,33 @@ export class PilotosPage implements OnInit {
     const response = await this.driversSvc.deleteDriver(driver);
     console.log(response);
     this.isModalOpen = false;
+  }
+
+  onEditDriver(driver: Driver) {
+    this.abrirDriverForm(driver);
+    this.setOpen(false);
+  }
+
+  async abrirDriverForm(driver:Driver) {
+    const modal = await this.modalCtrl.create({
+      component:DriverEditComponent,
+      cssClass:"modal-full-right-side",
+      componentProps:{ driver:driver },
+    });
+    modal.present();
+    modal.onDidDismiss().then(result=>{
+      if(result && result.data) {
+        switch(result.data.mode) {
+          case 'New':
+            this.driversSvc.addDriver(result.data.driver);
+            break;
+          case 'Edit':
+            this.driversSvc.updateDriver(result.data.driver);
+            break;
+          default:
+        }
+      }
+    });
   }
 
 }
