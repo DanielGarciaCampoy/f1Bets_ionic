@@ -14,18 +14,22 @@ export class DriverEditComponent  implements OnInit {
 
   form:FormGroup;
   mode:"New" | "Edit" = "New";
+  
   currentImage = new BehaviorSubject<string>("");
   currentImage$ = this.currentImage.asObservable();
+  
   @Input('driver') set driver(driver:Driver) {
     if (driver) {
       this.form.controls['id'].setValue(driver.id);
       this.form.controls['name'].setValue(driver.name);
-      this.form.controls['picture'].setValue(driver.picture);
       this.form.controls['yearBirth'].setValue(driver.yearBirth);
       this.form.controls['team'].setValue(driver.team);
       this.form.controls['picture'].setValue(driver.picture);
+      
       if (driver.picture)
         this.currentImage.next(driver.picture);
+      this.form.controls['pictureFile'].setValue(null);
+
       this.mode = "Edit";
     }
   }
