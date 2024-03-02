@@ -21,6 +21,11 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
 import { Camera } from '@awesome-cordova-plugins/camera/ngx';
 import { File } from '@awesome-cordova-plugins/file/ngx';
 
+// translate
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { createTranslateLoader } from './core/utils/translate.utils';
+
 register();
 
 @NgModule({
@@ -32,9 +37,19 @@ register();
     provideFirestore(() => getFirestore()),
     // provideFirebaseApp(() => initializeApp({"projectId":"f1bets-74760","appId":"1:996516886382:web:54ca52da55f0b20086337f","storageBucket":"f1bets-74760.appspot.com","locationId":"europe-west","apiKey":"AIzaSyC72Pwa0ObiKSBRQsRD9HjGebqH2HtHa9Y","authDomain":"f1bets-74760.firebaseapp.com","messagingSenderId":"996516886382"})),
     provideAuth(() => getAuth()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    // translate
+    HttpClientModule, TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    })
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, Camera, File],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, Camera, File,
+  
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -5,12 +5,20 @@
         <ion-grid>
           <ion-row>
             <ion-col>
-              <ion-title side="start" style="font-size: 2em;" *ngIf="folder=='/tabs/home'">Bienvenido</ion-title>
+              <ion-title side="start" style="font-size: 2em;" *ngIf="folder=='/tabs/home'">{{ 'app.bienvenido' | translate }}</ion-title>
               <ion-title side="start" style="font-size: 2em;" *ngIf="folder=='/tabs/pilotos'">Pilotos</ion-title>
               <ion-title side="start" style="font-size: 2em;" *ngIf="folder=='/tabs/circuitos'">Circuitos</ion-title>
               <ion-title side="start" style="font-size: 2em;" *ngIf="folder=='/tabs/apuestas'">Apuestas</ion-title>
             </ion-col>
             <ion-col style="display: flex; justify-content: flex-end;">
+              <ion-item style="height: 40px;" (click)="onLanguage()" button>
+                <div class="mitad">
+                  <ion-icon name="language-outline"></ion-icon>
+                </div>
+                <div class="mitad">
+                  &nbsp;Idioma
+                </div>
+              </ion-item>
               <ion-item style="height: 40px;" id="popover-button" button>
                 <div class="mitad">
                   <ion-avatar style="width: 30px; height: auto;"><img src="https://ionicframework.com/docs/img/demos/avatar.svg"></ion-avatar>
