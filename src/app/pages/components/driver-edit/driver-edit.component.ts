@@ -29,7 +29,7 @@ export class DriverEditComponent  implements OnInit {
       if (driver.picture)
         this.currentImage.next(driver.picture);
       this.form.controls['pictureFile'].setValue(null);
-
+      
       this.mode = "Edit";
     }
   }

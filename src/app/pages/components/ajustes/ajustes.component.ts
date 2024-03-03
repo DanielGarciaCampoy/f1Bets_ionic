@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
-import { Observable } from 'rxjs';
+import { Observable, first } from 'rxjs';
 import { User } from 'src/app/core/models/user.model';
 import { UserService } from 'src/app/core/services/user.service';
+import { UserEditComponent } from '../user-edit/user-edit.component';
 
 @Component({
   selector: 'app-ajustes',
@@ -56,6 +57,29 @@ export class AjustesComponent  implements OnInit {
 
   eliminarCuenta() {
     return this.userSvc.deleteAccount();
+  }
+
+  onEditUser() {
+    this.user$.pipe(first()).subscribe(async (user) => {
+      if (user) {
+        this.abrirUserForm(user);
+        this.modalController.dismiss();
+      }
+    });
+  }
+
+  async abrirUserForm(user:User) {
+    const modal = await this.modalController.create({
+      component:UserEditComponent,
+      cssClass:"modal-full-right-side",
+      componentProps:{ user:user }
+    });
+    modal.present();
+    modal.onDidDismiss().then(result=>{
+      if (result && result.data) {
+        this.userSvc.updateUser(result.data.user);
+      }
+    });
   }
 
 }

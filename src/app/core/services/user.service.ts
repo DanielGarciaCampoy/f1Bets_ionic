@@ -7,6 +7,7 @@ import { FirebaseService } from './firebase/firebase-service';
 import { LocalStorageService } from './local-storage.service';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { DocumentData, Firestore, addDoc, collection, collectionData, deleteDoc, doc, getDocs, query, where } from '@angular/fire/firestore';
+import { updateDoc } from 'firebase/firestore';
 
 
 
@@ -121,6 +122,18 @@ export class UserService {
         }
       })
     );
+  }
+
+  async updateUser(user: User) {
+    var _user = {
+      uid: user.uid ?? '',
+      username: user.userName
+    };
+    try {
+      await updateDoc(doc(this.firestore, 'user', _user.uid), _user);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
 }

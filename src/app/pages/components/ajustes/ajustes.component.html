@@ -52,5 +52,12 @@
         <ion-button color="danger" (click)="eliminarCuentaAlert()"><ion-icon name="ban-outline"></ion-icon>&nbsp;<b>{{ 'ajustes.eliminarCuenta' | translate }}</b></ion-button>
       </ion-col>
     </ion-row>
+    <ion-row class="botones">
+      <ion-col>
+        <ion-button color="success" (click)="onEditUser()"><ion-icon name="create-outline"></ion-icon>
+          <ion-label>&nbsp;&nbsp;<b>{{ 'pilotos.editar' | translate }}</b></ion-label>
+        </ion-button>
+      </ion-col>
+    </ion-row>
   </div>
 </ion-content>
