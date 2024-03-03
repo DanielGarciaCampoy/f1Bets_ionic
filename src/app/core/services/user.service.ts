@@ -6,7 +6,7 @@ import { User, UserLogin, UserRegister } from '../models/user.model';
 import { FirebaseService } from './firebase/firebase-service';
 import { LocalStorageService } from './local-storage.service';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@angular/fire/auth';
-import { DocumentData, Firestore, addDoc, collection, collectionData, deleteDoc, doc, getDocs, query, where } from '@angular/fire/firestore';
+import { DocumentData, Firestore, addDoc, collection, collectionData, deleteDoc, doc, getDocs, query, setDoc, where } from '@angular/fire/firestore';
 import { updateDoc } from 'firebase/firestore';
 
 
@@ -48,16 +48,18 @@ export class UserService {
         var _user:UserCredential = await createUserWithEmailAndPassword(this.auth, data.email, data.password);
         
         const userCollection = collection(this.firestore, 'user');
-        const userDocRef = await addDoc(userCollection, {
-        uid: _user.user.uid,
-        userName: data.userName,
-        email: data.email,
-        picture: "",
-        password: "",
-        betMoney: 100
-      });
+        const userDocRef = doc(userCollection, _user.user.uid);
 
-      resolve(userDocRef.id);
+        await setDoc(userDocRef, {
+          uid: _user.user.uid,
+          userName: data.userName,
+          email: data.email,
+          picture: "",
+          password: "",
+          betMoney: 100
+        });
+
+        resolve(_user.user.uid);
       } catch(error) {
         reject(error);
       }
