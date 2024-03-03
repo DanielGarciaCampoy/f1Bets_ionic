@@ -23,7 +23,7 @@ import { LoginPage } from '../pages/login/login.page';
     // components
     AjustesComponent, DriverEditComponent, UserEditComponent, SigninComponent, SignupComponent,
     // pages
-    ApuestasPage, CircuitosPage, PilotosPage, LoginPage
+    ApuestasPage, CircuitosPage, PilotosPage, LoginPage, TabsPage
   ],
   imports: [
     CommonModule,

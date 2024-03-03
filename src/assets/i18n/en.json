@@ -6,7 +6,8 @@
         "apuestas":"Bets",
         "sesion":"Logged in as:",
         "ajustes":"Settings",
-        "cerrarSesion":"Log out"
+        "cerrarSesion":"Log out",
+        "idioma":"Language"
     },
     "home":{
         "bienvenidoA":"Welcome to",
@@ -17,5 +18,22 @@
         "circuitosDesc":"Where you can bet which driver to win in each circuit",
         "apuestasDesc":"A list of all the bets you've made",
         "apuestasRealizadas":"Bets made"
+    },
+    "ajustes":{
+        "usuario":"Username:",
+        "dinero":"Money:",
+        "cerrarSesion":"Log out",
+        "eliminarCuenta":"Delete account"
+    },
+    "pilotos":{
+        "escuderia":"Team:",
+        "yearBirth":"Birth year:",
+        "editar":"Edit",
+        "eliminar":"Delete"
+    },
+    "circuitos":{
+        "vueltas":"Laps:",
+        "longitud":"Length:",
+        "apostar":"Bet"
     }
 }
