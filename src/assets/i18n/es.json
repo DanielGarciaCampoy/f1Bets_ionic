@@ -1,5 +1,21 @@
 {
     "app":{
-        "bienvenido":"Bienvenido"
+        "bienvenido":"Bienvenido",
+        "pilotos":"Pilotos",
+        "circuitos":"Circuitos",
+        "apuestas":"Apuestas",
+        "sesion":"Sesión iniciada como:",
+        "ajustes":"Ajustes",
+        "cerrarSesion":"Cerrar sesión"
+    },
+    "home":{
+        "bienvenidoA":"Bienvenido a",
+        "listade":"Lista de",
+        "estasRegistrado":"Estas registrado como:",
+        "desliza":"Desliza a la derecha para ver más >",
+        "pilotosDesc":"Lista de pilotos en la temporada actual de F1",
+        "circuitosDesc":"Donde puedes apostar qué piloto ganará en cada circuito",
+        "apuestasDesc":"Donde podrás ver una lista de las apuestas que has realizado",
+        "apuestasRealizadas":"Apuestas realizadas"
     }
 }

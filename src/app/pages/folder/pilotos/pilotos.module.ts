@@ -15,6 +15,6 @@ import { PilotosPage } from './pilotos.page';
     IonicModule,
     PilotosPageRoutingModule
   ],
-  declarations: [PilotosPage]
+  declarations: []
 })
 export class PilotosPageModule {}

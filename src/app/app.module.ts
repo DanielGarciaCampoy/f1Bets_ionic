@@ -32,7 +32,6 @@ register();
   declarations: [AppComponent],
   imports: [
     BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicModule,
-    CoreModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     // provideFirebaseApp(() => initializeApp({"projectId":"f1bets-74760","appId":"1:996516886382:web:54ca52da55f0b20086337f","storageBucket":"f1bets-74760.appspot.com","locationId":"europe-west","apiKey":"AIzaSyC72Pwa0ObiKSBRQsRD9HjGebqH2HtHa9Y","authDomain":"f1bets-74760.firebaseapp.com","messagingSenderId":"996516886382"})),

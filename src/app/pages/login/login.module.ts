@@ -21,6 +21,6 @@ import { DriverEditComponent } from '../components/driver-edit/driver-edit.compo
     LoginPageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [LoginPage, SigninComponent, SignupComponent, AjustesComponent, UserEditComponent, DriverEditComponent]
+  declarations: []
 })
 export class LoginPageModule {}

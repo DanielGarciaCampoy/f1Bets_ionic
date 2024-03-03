@@ -15,6 +15,6 @@ import { CircuitosPage } from './circuitos.page';
     IonicModule,
     CircuitosPageRoutingModule
   ],
-  declarations: [CircuitosPage]
+  declarations: []
 })
 export class CircuitosPageModule {}

@@ -2,21 +2,43 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { HttpClientModule } from '@angular/common/http';
-
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { createTranslateLoader } from './utils/translate.utils';
+import { AjustesComponent } from '../pages/components/ajustes/ajustes.component';
+import { HomePage } from '../pages/folder/home/home.page';
+import { DriverEditComponent } from '../pages/components/driver-edit/driver-edit.component';
+import { UserEditComponent } from '../pages/components/user-edit/user-edit.component';
+import { SigninComponent } from '../pages/login/components/signin/signin.component';
+import { SignupComponent } from '../pages/login/components/signup/signup.component';
+import { ApuestasPage } from '../pages/folder/apuestas/apuestas.page';
+import { CircuitosPage } from '../pages/folder/circuitos/circuitos.page';
+import { PilotosPage } from '../pages/folder/pilotos/pilotos.page';
+import { TabsPage } from '../pages/folder/tabs/tabs.page';
+import { LoginPage } from '../pages/login/login.page';
 
 
 @NgModule({
   declarations: [
     // components
+    AjustesComponent, DriverEditComponent, UserEditComponent, SigninComponent, SignupComponent,
+    // pages
+    ApuestasPage, CircuitosPage, PilotosPage, LoginPage
   ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule.forRoot(),
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
     // translate
+    TranslateModule.forChild({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+        }
+    }),
   ],
   exports:[
     CommonModule,

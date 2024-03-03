@@ -1,5 +1,21 @@
 {
     "app":{
-        "bienvenido":"Welcome"
+        "bienvenido":"Welcome",
+        "pilotos":"Drivers",
+        "circuitos":"Circuits",
+        "apuestas":"Bets",
+        "sesion":"Logged in as:",
+        "ajustes":"Settings",
+        "cerrarSesion":"Log out"
+    },
+    "home":{
+        "bienvenidoA":"Welcome to",
+        "listade":"List of",
+        "estasRegistrado":"Signed up as:",
+        "desliza":"Swipe right to see more >",
+        "pilotosDesc":"This F1 season's drivers list",
+        "circuitosDesc":"Where you can bet which driver to win in each circuit",
+        "apuestasDesc":"A list of all the bets you've made",
+        "apuestasRealizadas":"Bets made"
     }
 }

@@ -6,9 +6,9 @@
           <ion-row>
             <ion-col>
               <ion-title side="start" style="font-size: 2em;" *ngIf="folder=='/tabs/home'">{{ 'app.bienvenido' | translate }}</ion-title>
-              <ion-title side="start" style="font-size: 2em;" *ngIf="folder=='/tabs/pilotos'">Pilotos</ion-title>
-              <ion-title side="start" style="font-size: 2em;" *ngIf="folder=='/tabs/circuitos'">Circuitos</ion-title>
-              <ion-title side="start" style="font-size: 2em;" *ngIf="folder=='/tabs/apuestas'">Apuestas</ion-title>
+              <ion-title side="start" style="font-size: 2em;" *ngIf="folder=='/tabs/pilotos'">{{ 'app.pilotos' | translate }}</ion-title>
+              <ion-title side="start" style="font-size: 2em;" *ngIf="folder=='/tabs/circuitos'">{{ 'app.circuitos' | translate }}</ion-title>
+              <ion-title side="start" style="font-size: 2em;" *ngIf="folder=='/tabs/apuestas'">{{ 'app.apuestas' | translate }}</ion-title>
             </ion-col>
             <ion-col style="display: flex; justify-content: flex-end;">
               <ion-item style="height: 40px;" (click)="onLanguage()" button>
@@ -35,7 +35,7 @@
           <ng-template>
             <ion-content>
               <ion-list>
-                <ion-item>Sesión iniciada como:</ion-item>
+                <ion-item>{{ 'app.sesion' | translate }}</ion-item>
                 <ion-item>
                   <ion-grid>
                     <ion-row class="userBtn">
@@ -56,11 +56,11 @@
                 </ion-item>
                 <ion-item [button]="true" [detail]="false" (click)="abrirAjustes()">
                   <ion-icon name="settings-outline" color="white"></ion-icon>
-                  <ion-label>&nbsp;&nbsp;<b>Ajustes</b></ion-label>
+                  <ion-label>&nbsp;&nbsp;<b>{{ 'app.ajustes' | translate }}</b></ion-label>
                 </ion-item>
                 <ion-item [button]="true" [detail]="false" (click)="logOut()">
                   <ion-icon name="log-out-outline" color="danger"></ion-icon>
-                  <ion-label>&nbsp;&nbsp;<b>Cerrar sesión</b></ion-label>
+                  <ion-label>&nbsp;&nbsp;<b>{{ 'app.cerrarSesion' | translate }}</b></ion-label>
                 </ion-item>
               </ion-list>
             </ion-content>

@@ -15,6 +15,6 @@ import { ApuestasPage } from './apuestas.page';
     IonicModule,
     ApuestasPageRoutingModule
   ],
-  declarations: [ApuestasPage]
+  declarations: []
 })
 export class ApuestasPageModule {}
