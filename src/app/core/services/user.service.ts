@@ -129,7 +129,7 @@ export class UserService {
   async updateUser(user: User) {
     var _user = {
       uid: user.uid ?? '',
-      username: user.userName
+      userName: user.userName
     };
     try {
       await updateDoc(doc(this.firestore, 'user', _user.uid), _user);
