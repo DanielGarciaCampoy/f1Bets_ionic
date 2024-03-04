@@ -41,6 +41,10 @@
     },
     "apuesta":{
         "apuesta":"You've bet:",
-        "victoria":"For the victory of:"
+        "victoria":"For the victory of:",
+        "circuito":"Circuit:",
+        "piloto":"Driver:",
+        "dinero":"Money to bet:",
+        "apostar":"Bet"
     }
 }

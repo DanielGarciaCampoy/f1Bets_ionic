@@ -41,6 +41,10 @@
     },
     "apuesta":{
         "apuesta":"Se ha apostado:",
-        "victoria":"Por la victoria de:"
+        "victoria":"Por la victoria de:",
+        "circuito":"Circuito:",
+        "piloto":"Piloto:",
+        "dinero":"Dinero a apostar:",
+        "apostar":"Apostar"
     }
 }

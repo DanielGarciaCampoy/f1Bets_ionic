@@ -24,7 +24,7 @@
         <ion-title><b>{{ (circuit$ | async)?.nameCircuit }}</b></ion-title>
       </ion-col>
       <ion-col style="text-align: center;">
-        <ion-button color="danger" (click)="deleteApuestaAlert()"><ion-icon name="trash-outline"></ion-icon>Eliminar</ion-button>
+        <ion-button color="danger" (click)="deleteApuestaAlert()"><ion-icon name="trash-outline"></ion-icon>{{ 'pilotos.eliminar' | translate }}</ion-button>
       </ion-col>
       <ion-col>
         <ion-title><b>{{ (driver$ | async)?.name }}</b></ion-title>

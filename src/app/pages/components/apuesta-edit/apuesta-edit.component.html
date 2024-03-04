@@ -9,15 +9,15 @@
 <ion-content class="ion-padding">
   <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
     <ion-item-divider>
-      <ion-label>Circuito:</ion-label>
+      <ion-title class="blanco">{{ 'apuesta.circuito' | translate }}</ion-title>
     </ion-item-divider>
     <app-circuito-selectable formControlName="idCircuit"></app-circuito-selectable>
-    <ion-item-divider>
-      <ion-label>Piloto:</ion-label>
+    <ion-item-divider style="margin-top: 3%;">
+      <ion-title class="blanco">{{ 'apuesta.piloto' | translate }}</ion-title>
     </ion-item-divider>
     <app-driver-selectable formControlName="idDriver"></app-driver-selectable>
     <ion-item style="margin-top: 5%;">
-      <ion-label position="floating">Dinero a apostar:</ion-label>
+      <ion-label position="floating">{{ 'apuesta.dinero' | translate }}</ion-label>
       <ion-input type="number" placeholder="Dinero" formControlName="betMoney"></ion-input>
     </ion-item>
   </form>
@@ -26,7 +26,7 @@
   <ion-grid>
     <ion-row>
       <ion-col class="ion-text-center">
-        <ion-button [disabled]="!form.valid" (click)="onSubmit()" color="danger">Apostar</ion-button>
+        <ion-button [disabled]="!form.valid" (click)="onSubmit()" color="danger">{{ 'apuesta.apostar' | translate }}</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
