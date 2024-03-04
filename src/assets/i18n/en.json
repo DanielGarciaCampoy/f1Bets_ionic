@@ -46,5 +46,15 @@
         "piloto":"Driver:",
         "dinero":"Money to bet:",
         "apostar":"Bet"
+    },
+    "login":{
+        "login":"Log in",
+        "email":"Email",
+        "password":"Password",
+        "register":"Register",
+        "emailVal":"Incorrect email format",
+        "passwordVal":"At least 8 characters, a capital letter, a lowercase letter and a number",
+        "passwordRep":"Repeat password",
+        "passwordNo":"Passwords doesn't match"
     }
 }

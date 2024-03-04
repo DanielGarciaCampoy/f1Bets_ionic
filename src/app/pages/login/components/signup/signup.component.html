@@ -1,49 +1,56 @@
-<ion-content>
+<ion-toolbar>
+  <ion-title><b>{{ 'login.register' | translate }}</b></ion-title>
+  <ion-buttons slot="end">
+    <ion-button (click)="closeModal()">
+      <ion-icon color="danger" name="close-outline" class="close"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+<ion-content class="ion-padding">
   <form [formGroup]="form" (ngSubmit)="onRegister()">
-    <h1>Registrarse</h1>
     <ion-list>
       <ion-item lines="none">
         <ion-label position="stacked">
-          Nombre de usuario<span class="required" *ngIf="form.controls['userName'].errors">&nbsp;&#42;</span>
+          {{ 'ajustes.usuario' | translate }}<span class="required" *ngIf="form.controls['userName'].errors">&nbsp;&#42;</span>
         </ion-label>
         <ion-input autocomplete="userName" placeHolder="" type="text" formControlName="userName"></ion-input>
       </ion-item>
       <ion-item lines="none">
         <ion-label position="stacked">
-          Email<span class="required" *ngIf="form.controls['email'].errors">&nbsp;&#42;</span>
+          {{ 'login.email' | translate }}<span class="required" *ngIf="form.controls['email'].errors">&nbsp;&#42;</span>
         </ion-label>
         <ion-input autocomplete="email" placeHolder="usuario@dominio.com" type="text" formControlName="email"></ion-input>
         <small
           class="validationError colorRojo"
           *ngFor="let error of errorsToArray(form.controls['email'].errors!)">
-            Formato de email incorrecto
+            {{ 'login.emailVal' | translate }}
         </small>
       </ion-item>
       <ion-item lines="none">
         <ion-label position="stacked">
-          Contraseña<span class="required" *ngIf="form.controls['password'].errors">&nbsp;&#42;</span>
+          {{ 'login.password' | translate }}<span class="required" *ngIf="form.controls['password'].errors">&nbsp;&#42;</span>
         </ion-label>
         <ion-input type="password" formControlName="password"></ion-input>
         <small
           class="validationError colorRojo"
           *ngIf="hasFormError('passwordProto')">
-            Al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número
+            {{ 'login.passwordVal' | translate }}
         </small>
       </ion-item>
       <ion-item lines="none">
         <ion-label position="stacked">
-          Repetir contraseña<span class="required" *ngIf="form.controls['confirmPassword'].errors">&nbsp;&#42;</span>
+          {{ 'login.passwordRep' | translate }}<span class="required" *ngIf="form.controls['confirmPassword'].errors">&nbsp;&#42;</span>
         </ion-label>
         <ion-input (keyup.enter)="form.valid?onRegister():null" [enterkeyhint]="'enter'" type="password" formControlName="confirmPassword"></ion-input>
         <small
           class="validationError colorRojo"
           *ngIf="hasFormError('passwordMatch') && form.get('confirmPassword')?.value">
-          No coincide la contraseña
+          {{ 'login.passwordNo' | translate }}
         </small>
       </ion-item>
     </ion-list>
-    <div class="form-button">
-      <ion-button [disabled]="!form.valid" (click)="onRegister()">Registrarse</ion-button>
+    <div class="form-button" style="text-align: center; margin-top: 5%;">
+      <ion-button [disabled]="!form.valid" (click)="onRegister()" color="danger">{{ 'login.register' | translate }}</ion-button>
     </div>
   </form>
 </ion-content>

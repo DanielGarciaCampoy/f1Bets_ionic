@@ -1,10 +1,11 @@
 <body color-theme="dark">
   <ion-app>
-    <ion-header [translucent]="true" *ngIf="folder!='/login'">
+    <ion-header [translucent]="true">
       <ion-toolbar>
         <ion-grid>
           <ion-row>
             <ion-col>
+              <ion-title side="start" style="font-size: 2em;" *ngIf="folder=='/login'">{{ 'login.login' | translate }}</ion-title>
               <ion-title side="start" style="font-size: 2em;" *ngIf="folder=='/tabs/home'">{{ 'app.bienvenido' | translate }}</ion-title>
               <ion-title side="start" style="font-size: 2em;" *ngIf="folder=='/tabs/pilotos'">{{ 'app.pilotos' | translate }}</ion-title>
               <ion-title side="start" style="font-size: 2em;" *ngIf="folder=='/tabs/circuitos'">{{ 'app.circuitos' | translate }}</ion-title>
@@ -19,7 +20,7 @@
                   &nbsp;{{ 'app.idioma' | translate }}
                 </div>
               </ion-item>
-              <ion-item style="height: 40px;" id="popover-button" button>
+              <ion-item style="height: 40px;" id="popover-button" button *ngIf="folder!='/login'">
                 <div class="mitad">
                   <ion-avatar style="width: 30px; height: auto;"><img src="https://ionicframework.com/docs/img/demos/avatar.svg"></ion-avatar>
                 </div>

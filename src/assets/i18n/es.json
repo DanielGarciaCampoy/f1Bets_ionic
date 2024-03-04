@@ -46,5 +46,15 @@
         "piloto":"Piloto:",
         "dinero":"Dinero a apostar:",
         "apostar":"Apostar"
+    },
+    "login":{
+        "login":"Iniciar sesión",
+        "email":"Correo electrónico",
+        "password":"Contraseña",
+        "register":"Registrarse",
+        "emailVal":"Formato de email incorrecto",
+        "passwordVal":"Al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número",
+        "passwordRep":"Repetir contraseña",
+        "passwordNo":"No coincide la contraseña"
     }
 }

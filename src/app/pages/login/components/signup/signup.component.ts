@@ -47,6 +47,10 @@ export class SignupComponent  implements OnInit {
       return [Object.keys(errors)[0]];
     else
       return [];
-  } 
+  }
+
+  closeModal() {
+    this.modalCtrl.dismiss();
+  }
 
 }
