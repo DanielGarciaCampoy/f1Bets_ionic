@@ -10,7 +10,7 @@ import Apuesta from 'src/app/core/interfaces/apuesta.interface';
 })
 export class ApuestaEditComponent  implements OnInit {
 
-  form!: FormGroup;
+  form: FormGroup;
   mode:"New" | "Edit" = "New";
 
   @Input('bets') set apuesta(apuesta:Apuesta){
@@ -28,7 +28,7 @@ export class ApuestaEditComponent  implements OnInit {
     private fb: FormBuilder
   ) {
     this.form = this.fb.group({
-      id:[null],
+      id:[''],
       idCircuit:[''],
       idDriver:[''],
       betMoney:[0]
@@ -42,7 +42,7 @@ export class ApuestaEditComponent  implements OnInit {
   }
 
   onSubmit(){
-    this.modalCtrl.dismiss({apuesta: this.form.value, mode:this.mode}, 'ok');
+    this.modalCtrl.dismiss({bets: this.form.value, mode:this.mode}, 'ok');
   }
 
 }

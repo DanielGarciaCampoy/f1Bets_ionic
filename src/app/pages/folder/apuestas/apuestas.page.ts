@@ -35,7 +35,7 @@ export class ApuestasPage implements OnInit {
     return this.driverSvc.getDriverById(id);
   }*/
 
-  async presentForm(_class: any, onDismiss:(arg0: any)=>void){
+  /*async presentForm(_class: any, onDismiss:(arg0: any)=>void){
     const modal = await this.modalCtrl.create({
       component:_class,
       cssClass:"modal-full-right-side"
@@ -51,6 +51,28 @@ export class ApuestasPage implements OnInit {
   onApostar() {
     this.presentForm(ApuestaEditComponent, (data)=> {
       this.apuestasSvc.addApuesta(data.apuesta);
+    });
+  }*/
+
+  async abrirApuestaForm() {
+    const modal = await this.modalCtrl.create({
+      component:ApuestaEditComponent,
+      cssClass:"modal-full-right-side",
+      componentProps:{  },
+    });
+    modal.present();
+    modal.onDidDismiss().then(result=>{
+      if(result && result.data) {
+        switch(result.data.mode) {
+          case 'New':
+            this.apuestasSvc.addApuesta(result.data.bets);
+            break;
+          case 'Edit':
+            // this.apuestasSvc.updateDriver(result.data.bets);
+            break;
+          default:
+        }
+      }
     });
   }
 

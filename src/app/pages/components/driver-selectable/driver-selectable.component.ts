@@ -1,13 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { ControlValueAccessor } from '@angular/forms';
+import { Component, OnInit, forwardRef } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IonAccordionGroup, ModalController } from '@ionic/angular';
 import { DriversService } from 'src/app/core';
 import Driver from 'src/app/core/interfaces/driver.interface';
+
+export const DRIVER_PROFILE_VALUE_ACCESSOR: any = {
+  provide: NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() => DriverSelectableComponent),
+  multi: true
+};
 
 @Component({
   selector: 'app-driver-selectable',
   templateUrl: './driver-selectable.component.html',
   styleUrls: ['./driver-selectable.component.scss'],
+  providers: [DRIVER_PROFILE_VALUE_ACCESSOR]
 })
 export class DriverSelectableComponent  implements OnInit, ControlValueAccessor {
 
@@ -29,7 +36,11 @@ export class DriverSelectableComponent  implements OnInit, ControlValueAccessor 
 
   async writeValue(obj: any) {
     try {
-      this.selectedDriver = await this.driversSvc.getDriverById(obj);
+      if (obj) {
+        this.selectedDriver = await this.driversSvc.getDriverById(obj);
+      } else {
+        this.selectedDriver = null;
+      }
     } catch (error) {
       console.log("No se ha podido recupera los datos: "+ error);
     }
@@ -38,8 +49,10 @@ export class DriverSelectableComponent  implements OnInit, ControlValueAccessor 
   registerOnChange(fn: any): void {
     this.propagateChange = fn;
   }
+
   registerOnTouched(fn: any): void {
   }
+
   setDisabledState?(isDisabled: boolean): void {
     this.isDisabled = isDisabled;
   }
@@ -47,7 +60,7 @@ export class DriverSelectableComponent  implements OnInit, ControlValueAccessor 
   onDriverClicked(driver:Driver, accordion:IonAccordionGroup){
     this.selectedDriver = driver;
     accordion.value='';
-    this.propagateChange(this.selectedDriver.docId);
+    this.propagateChange(this.selectedDriver.id);
   }
 
 }
