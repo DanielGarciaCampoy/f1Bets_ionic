@@ -1,6 +1,30 @@
-<ion-item>
-  <ion-label>{{ apuesta.idCircuit }}</ion-label>
-  <ion-label>{{ ( circuit$ | async )?.nameCircuit }}</ion-label>
-  <ion-label>{{ (driver$ | async)?.name }}</ion-label>
-  <ion-label>{{ apuesta.betMoney }}€</ion-label>
-</ion-item>
+<ion-card class="ion-padding bordes">
+  <ion-row>
+    <ion-col>
+      <div class="zoom-div">
+        <img *ngIf="!(circuit$ | async)?.picture" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+        <img *ngIf="(circuit$ | async)?.picture" alt="Person picture" [src]="(circuit$ | async)?.picture" />
+      </div>
+    </ion-col>
+    <ion-col style="text-align: center;">
+      <ion-title>Se ha apostado:</ion-title>
+      <ion-title>{{ apuesta.betMoney }}€</ion-title>
+      <ion-label>Por la victoria de:</ion-label>
+    </ion-col>
+    <ion-col>
+      <div class="zoom-div">
+        <img *ngIf="!(driver$ | async)?.picture" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+        <img *ngIf="(driver$ | async)?.picture" alt="Person picture" [src]="(driver$ | async)?.picture" />
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-title><b>{{ (circuit$ | async)?.nameCircuit }}</b></ion-title>
+    </ion-col>
+    <ion-col></ion-col>
+    <ion-col>
+      <ion-title><b>{{ (driver$ | async)?.name }}</b></ion-title>
+    </ion-col>
+  </ion-row>
+</ion-card>
