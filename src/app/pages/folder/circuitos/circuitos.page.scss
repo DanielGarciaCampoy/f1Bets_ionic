@@ -59,3 +59,9 @@ ion-card:hover {
 .zoom-div:hover .zoom-img {
     transform: scale(1.1);
 }
+
+img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}

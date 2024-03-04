@@ -38,5 +38,9 @@
     },
     "userEdit":{
         "editarPerfil":"Edit profile"
+    },
+    "apuesta":{
+        "apuesta":"You've bet:",
+        "victoria":"For the victory of:"
     }
 }
