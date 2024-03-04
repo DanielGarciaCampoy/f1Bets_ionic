@@ -15,7 +15,6 @@
     align-items: center;
     text-align: center;
     color: white;
-    // background-color: rgba(0, 0, 0, 0.7);
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 100%);
     padding-top: 40%;
 }
@@ -38,8 +37,8 @@
     top: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2; /* Ajusta el índice Z para asegurar que esté por encima del contenido */
-    max-width: 30%; /* Ajusta el porcentaje según tus necesidades */
+    z-index: 2;
+    max-width: 30%;
     width: auto;
     height: auto;
 }

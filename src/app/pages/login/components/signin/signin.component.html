@@ -1,36 +1,35 @@
 <body>
-  <ion-grid class="login">
-    <ion-row>
-      <ion-col>
-        <form [formGroup]="form" (ngSubmit)="onSignIn()">
-          <ion-list>
-            <ion-item>
-              <ion-label position="stacked">
-                {{ 'login.email' | translate }}
-              </ion-label>
-              <ion-input [enterkeyhint]="'next'" autocomplete="email" type="text" formControlName="email"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label position="stacked">
-                {{ 'login.password' | translate }}
-              </ion-label>
-              <ion-input (keyup.enter)="form.valid?onSignIn():null" [enterkeyhint]="'enter'" autocomplete="password" type="password" formControlName="password"></ion-input>
-            </ion-item>
-          </ion-list>
-          <ion-row>
-            <ion-col>
-              <div class="form-button right">
-                <ion-button [disabled]="!form.valid" (click)="onSignIn()">{{ 'login.login' | translate }}</ion-button>
-              </div>
-            </ion-col>
-            <ion-col>
-              <div>
-                <ion-button (click)="register()">{{ 'login.register' | translate }}</ion-button>
-              </div> 
-            </ion-col>
-          </ion-row>
-        </form>   
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <div class="overlay">
+    <ion-grid class="login">
+      <form [formGroup]="form" (ngSubmit)="onSignIn()">
+        <img src="../../../../../assets/images/logo.png">
+        <ion-list>
+          <ion-item>
+            <ion-label position="stacked">
+              {{ 'login.email' | translate }}
+            </ion-label>
+            <ion-input [enterkeyhint]="'next'" autocomplete="email" type="text" formControlName="email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">
+              {{ 'login.password' | translate }}
+            </ion-label>
+            <ion-input (keyup.enter)="form.valid?onSignIn():null" [enterkeyhint]="'enter'" autocomplete="password" type="password" formControlName="password"></ion-input>
+          </ion-item>
+        </ion-list>
+        <ion-row style="margin-top: 5%;">
+          <ion-col>
+            <div class="form-button right">
+              <ion-button [disabled]="!form.valid" (click)="onSignIn()" color="danger">{{ 'login.login' | translate }}</ion-button>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div>
+              <ion-button (click)="register()" color="danger">{{ 'login.register' | translate }}</ion-button>
+            </div> 
+          </ion-col>
+        </ion-row>
+          </form>   
+    </ion-grid>
+  </div>
 </body>
