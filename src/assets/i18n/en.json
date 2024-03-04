@@ -35,5 +35,8 @@
         "vueltas":"Laps:",
         "longitud":"Length:",
         "apostar":"Bet"
+    },
+    "userEdit":{
+        "editarPerfil":"Edit profile"
     }
 }

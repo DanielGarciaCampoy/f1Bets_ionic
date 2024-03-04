@@ -1,5 +1,5 @@
 <ion-toolbar>
-    <ion-title><b><ion-icon name="create-outline" color="white"></ion-icon>&nbsp;Editar perfil</b></ion-title>
+    <ion-title><b><ion-icon name="create-outline" color="white"></ion-icon>&nbsp;{{ 'userEdit.editarPerfil' | translate }}</b></ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="closeModal()">
         <ion-icon color="danger" name="close-outline" class="close"></ion-icon>
@@ -17,11 +17,11 @@
         <ion-col size="8">
             <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
                 <ion-item>
-                    <ion-label position="floating">Nombre de usuario:</ion-label>
+                    <ion-label position="floating">{{ 'ajustes.usuario' | translate }}</ion-label>
                     <ion-input type="text" placeholder="" formControlName="userName"></ion-input>
                 </ion-item>
                 <ion-button [disabled]="!form.valid" (click)="onSubmit()" class="margin25" color="success">
-                    <p>Editar</p><ion-icon name="send-outline"></ion-icon>
+                    <p>{{ 'pilotos.editar' | translate }}</p><ion-icon name="send-outline"></ion-icon>
                 </ion-button>
             </form>
         </ion-col>

@@ -35,5 +35,8 @@
         "vueltas":"Vueltas:",
         "longitud":"Longitud:",
         "apostar":"Apostar"
+    },
+    "userEdit":{
+        "editarPerfil":"Editar perfil"
     }
 }
