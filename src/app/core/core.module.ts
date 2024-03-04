@@ -16,12 +16,13 @@ import { CircuitosPage } from '../pages/folder/circuitos/circuitos.page';
 import { PilotosPage } from '../pages/folder/pilotos/pilotos.page';
 import { TabsPage } from '../pages/folder/tabs/tabs.page';
 import { LoginPage } from '../pages/login/login.page';
+import { ApuestaComponent } from '../pages/components/apuesta/apuesta.component';
 
 
 @NgModule({
   declarations: [
     // components
-    AjustesComponent, DriverEditComponent, UserEditComponent, SigninComponent, SignupComponent,
+    AjustesComponent, DriverEditComponent, UserEditComponent, SigninComponent, SignupComponent, ApuestaComponent,
     // pages
     ApuestasPage, CircuitosPage, PilotosPage, LoginPage, TabsPage
   ],

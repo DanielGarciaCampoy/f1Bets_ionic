@@ -26,23 +26,6 @@ export class DriversService {
     return collectionData(driverRef, { idField: 'id' }) as Observable<Driver[]>;
   }
 
-  getDriverById(id:string):Promise<Driver>{
-    return new Promise<Driver>(async (resolve, reject)=>{
-      try {
-        var driver = await this.firebase.getDocument('driver', id);
-        resolve({
-          id: driver.id,
-          name: driver.data['name'],
-          team: driver.data['team'],
-          yearBirth: driver.data['yearBirth'],
-          picture: driver.data['picture'],
-        });  
-      } catch (error) {
-        reject(error);
-      }
-    });
-  }
-
   deleteDriver(driver: Driver) {
     const driverDocRef = doc(this.firestore, `driver/${driver.id}`);
     return deleteDoc(driverDocRef);
@@ -117,4 +100,42 @@ export class DriversService {
       .catch(error => console.log(error));
   }
 
+  /*getDriverById(id:string):Promise<Driver>{
+    return new Promise<Driver>(async (resolve, reject)=>{
+      try {
+        var driver = await this.firebase.getDocument('driver', id);
+        resolve({
+          id: driver.id,
+          name: driver.data['name'],
+          team: driver.data['team'],
+          yearBirth: driver.data['yearBirth'],
+          picture: driver.data['picture'],
+        });  
+      } catch (error) {
+        reject(error);
+      }
+    });
+  }*/
+
+  async getDriverById(id: string): Promise<Driver> {
+    try {
+      const driverDoc = await getDoc(doc(this.firestore, 'driver', id));
+
+      if (driverDoc.exists()) {
+        const driver: Driver = {
+          id: driverDoc.data()['id'],
+          name: driverDoc.data()['name'],
+          team: driverDoc.data()['team'],
+          yearBirth: driverDoc.data()['yearBirth'],
+          picture: driverDoc.data()['picture'],
+        };
+
+        return driver;
+      } else {
+        throw new Error('Driver no existe');
+      }
+    } catch (error) {
+      throw error;
+    }
+  }
 }

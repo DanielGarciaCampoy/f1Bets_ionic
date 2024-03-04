@@ -25,7 +25,7 @@ export class CircuitsService {
     return collectionData(circuitRef, { idField: 'id' }) as Observable<Circuit[]>;
   }
 
-  getCircuitById(id:string):Promise<Circuit>{
+  /*getCircuitById(id:string):Promise<Circuit>{
     return new Promise<Circuit>(async (resolve, reject)=>{
       try {
         var circuit = (await this.firebase.getDocument('circuit', id));
@@ -41,6 +41,29 @@ export class CircuitsService {
         reject(error);
       }
     });
+  }*/
+
+  async getCircuitById(id: string): Promise<Circuit> {
+    try {
+      const circuitDoc = await getDoc(doc(this.firestore, 'circuit', id));
+
+      if (circuitDoc.exists()) {
+        const circuit: Circuit = {
+          id: circuitDoc.data()['id'],
+          nameCircuit: circuitDoc.data()['nameCircuit'],
+          country: circuitDoc.data()['country'],
+          laps: circuitDoc.data()['laps'],
+          length: circuitDoc.data()['length'],
+          picture: circuitDoc.data()['picture'],
+        };
+
+        return circuit;
+      } else {
+        throw new Error('El circuito no existe');
+      }
+    } catch (error) {
+      throw error;
+    }
   }
 
 }
