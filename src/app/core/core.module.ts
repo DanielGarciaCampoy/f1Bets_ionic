@@ -17,12 +17,14 @@ import { PilotosPage } from '../pages/folder/pilotos/pilotos.page';
 import { TabsPage } from '../pages/folder/tabs/tabs.page';
 import { LoginPage } from '../pages/login/login.page';
 import { ApuestaComponent } from '../pages/components/apuesta/apuesta.component';
-
+import { ApuestaEditComponent } from '../pages/components/apuesta-edit/apuesta-edit.component';
+import { CircuitoSelectableComponent } from '../pages/components/circuito-selectable/circuito-selectable.component';
+import { DriverSelectableComponent } from '../pages/components/driver-selectable/driver-selectable.component';
 
 @NgModule({
   declarations: [
     // components
-    AjustesComponent, DriverEditComponent, UserEditComponent, SigninComponent, SignupComponent, ApuestaComponent,
+    AjustesComponent, DriverEditComponent, UserEditComponent, SigninComponent, SignupComponent, ApuestaComponent, ApuestaEditComponent, CircuitoSelectableComponent, DriverSelectableComponent,
     // pages
     ApuestasPage, CircuitosPage, PilotosPage, LoginPage, TabsPage
   ],

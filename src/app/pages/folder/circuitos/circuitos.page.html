@@ -36,23 +36,16 @@
             <ion-row class="mt-4">
               <ion-label class="color-white">{{ 'circuitos.longitud' | translate }}</ion-label>&nbsp;<ion-label>{{ circuit.length }}km</ion-label>
             </ion-row>
-            <ion-row class="mt-7">
-              <ion-button expand="block" color="success">
+            <!--<ion-row class="mt-7">
+              <ion-button expand="block" color="success" (click)="onApostar()">
                 {{ 'circuitos.apostar' | translate }} &nbsp;
                 <ion-icon name="cash-outline"></ion-icon>
               </ion-button>
-            </ion-row>
+            </ion-row>-->
           </div>
         </ion-col>
       </ion-row>
     </ion-card>
   </ion-list>
-
-  <!--<ion-item *ngFor="let circuit of circuits">
-    <ion-label>{{ circuit.nameCircuit }}</ion-label>
-    <ion-label>{{ circuit.country }}</ion-label>
-    <ion-label>{{ circuit.laps }}</ion-label>
-    <ion-label>{{ circuit.length }}</ion-label>
-  </ion-item>-->
 
 </ion-content>

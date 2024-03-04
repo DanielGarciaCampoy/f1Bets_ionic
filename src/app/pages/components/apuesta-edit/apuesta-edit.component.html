@@ -1,0 +1,33 @@
+<ion-toolbar>
+  <ion-title><b><ion-icon name="cash-outline" color="white"></ion-icon>&nbsp;Apostar</b></ion-title>
+  <ion-buttons slot="end">
+    <ion-button (click)="closeModal()">
+      <ion-icon color="danger" name="close-outline" class="close"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+<ion-content class="ion-padding">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
+    <ion-item-divider>
+      <ion-label>Circuito:</ion-label>
+    </ion-item-divider>
+    <app-circuito-selectable formControlName="idCircuit"></app-circuito-selectable>
+    <ion-item-divider>
+      <ion-label>Piloto:</ion-label>
+    </ion-item-divider>
+    <app-driver-selectable formControlName="idDriver"></app-driver-selectable>
+    <ion-item>
+      <ion-label position="floating">Dinero a apostar:</ion-label>
+      <ion-input type="text" placeholder="Dinero" formControlName="betMoney"></ion-input>
+    </ion-item>
+  </form>
+</ion-content>
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-button [disabled]="!form.valid" (click)="onSubmit()">Apostar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

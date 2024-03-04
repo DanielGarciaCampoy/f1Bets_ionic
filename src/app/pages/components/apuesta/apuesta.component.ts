@@ -1,9 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { DriversService } from 'src/app/core';
 import Apuesta from 'src/app/core/interfaces/apuesta.interface';
 import Circuit from 'src/app/core/interfaces/circuit.interface';
 import Driver from 'src/app/core/interfaces/driver.interface';
+import { ApuestasService } from 'src/app/core/services/apuestas.service';
 import { CircuitsService } from 'src/app/core/services/circuits.service';
 
 @Component({
@@ -34,9 +36,37 @@ export class ApuestaComponent  implements OnInit {
   driver$:Observable<Driver> = this._driver.asObservable();
   constructor(
     private circuitSvc: CircuitsService,
-    private driverSvc: DriversService
+    private driverSvc: DriversService,
+    private alertCtrl: AlertController,
+    private apuestaSvc: ApuestasService
   ) { }
 
   ngOnInit() {}
+
+  async deleteApuestaAlert() {
+    const alert = await this.alertCtrl.create({
+      header: '¿Está seguro?',
+      message: 'Eliminarás esta apuesta permanentemente',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'rojo',
+        },
+        {
+          text: 'Aceptar',
+          handler: () => {
+            this.deleteApuesta(this.apuesta);
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
+  async deleteApuesta(apuesta: Apuesta) {
+    const response = await this.apuestaSvc.deleteApuesta(apuesta);
+    console.log(response);
+  }
 
 }

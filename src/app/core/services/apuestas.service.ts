@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Firestore, collectionData, onSnapshot, query } from '@angular/fire/firestore';
+import { Firestore, collectionData, deleteDoc, doc, onSnapshot, query } from '@angular/fire/firestore';
 import { DocumentData, addDoc, collection } from 'firebase/firestore';
 import Apuesta from '../interfaces/apuesta.interface';
 import { DriversService } from './drivers.service';
@@ -33,7 +33,7 @@ export class ApuestasService {
     return {
       id: doc['id'].toString(),
       docId: doc['id'],
-      idCircuit: doc['idCircuit'], // Access fields directly
+      idCircuit: doc['idCircuit'],
       idDriver: doc['idDriver'],
       betMoney: doc['betMoney'],
     };
@@ -69,6 +69,11 @@ export class ApuestasService {
     });
 
     return unsubscribe;
+  }
+
+  deleteApuesta(apuesta: Apuesta) {
+    const apuestaDoc = doc(this.firestore, `bets/${apuesta.id}`);
+    return deleteDoc(apuestaDoc);
   }
 
 }
