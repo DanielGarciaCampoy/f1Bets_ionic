@@ -1,0 +1,51 @@
+<ion-toolbar>
+  <ion-title><b><ion-icon name="settings-outline" color="white"></ion-icon>&nbsp;{{ 'pilotos.editCircuito' | translate}}</b></ion-title>
+  <ion-buttons slot="end">
+    <ion-button (click)="closeModal()">
+      <ion-icon color="danger" name="close-outline" class="close"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4">
+        <input id="fileLoader" type="file" #fileLoader name="files" title="Load Files" hidden>
+        <ion-img  *ngIf="currentImage.value" [src]="currentImage$ | async"></ion-img>
+        <ion-img *ngIf="!currentImage.value" src="https://ionicframework.com/docs/img/demos/thumbnail.svg"></ion-img>
+        <ion-button expand="full" (click)="changePic(fileLoader, 'file')" color="warning">{{ 'pilotos.img' | translate }}</ion-button>
+      </ion-col>
+      <ion-col>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
+          <ion-item>
+            <ion-label position="floating">{{ 'pilotos.nombre' | translate }} </ion-label>
+            <ion-input type="text" placeholder="Nombre" formControlName="nameCircuit"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">{{ 'circuitos.pais' | translate }} </ion-label>
+            <ion-input type="text" placeholder="Pais" formControlName="country"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">{{ 'circuitos.vueltas' | translate }} </ion-label>
+            <ion-input type="number" placeholder="Vueltas" formControlName="laps"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">{{ 'circuitos.longitud' | translate }} </ion-label>
+            <ion-input type="number" placeholder="Longitud" formControlName="length"></ion-input>
+          </ion-item>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-button [disabled]="!form.valid" (click)="onSubmit()" color="danger">
+          <p *ngIf="mode=='Edit'">{{  'pilotos.editar' | translate }}</p><p *ngIf="mode!='Edit'">{{  'pilotos.add' | translate }}</p> &nbsp; <ion-icon name="send-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

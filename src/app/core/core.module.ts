@@ -20,11 +20,13 @@ import { ApuestaComponent } from '../pages/components/apuesta/apuesta.component'
 import { ApuestaEditComponent } from '../pages/components/apuesta-edit/apuesta-edit.component';
 import { CircuitoSelectableComponent } from '../pages/components/circuito-selectable/circuito-selectable.component';
 import { DriverSelectableComponent } from '../pages/components/driver-selectable/driver-selectable.component';
+import { CircuitosEditComponent } from '../pages/components/circuitos-edit/circuitos-edit.component';
 
 @NgModule({
   declarations: [
     // components
     AjustesComponent, DriverEditComponent, UserEditComponent, SigninComponent, SignupComponent, ApuestaComponent, ApuestaEditComponent, CircuitoSelectableComponent, DriverSelectableComponent,
+    CircuitosEditComponent,
     // pages
     ApuestasPage, CircuitosPage, PilotosPage, LoginPage, TabsPage
   ],

@@ -32,12 +32,16 @@
         "eliminar":"Delete",
         "img":"Change image",
         "nombre":"Name:",
-        "add":"Add"
+        "add":"Add",
+        "detalles":"Details",
+        "editPiloto":"Edit driver",
+        "editCircuito":"Edit circuit"
     },
     "circuitos":{
         "vueltas":"Laps:",
         "longitud":"Length:",
-        "apostar":"Bet"
+        "apostar":"Bet",
+        "pais":"Country"
     },
     "userEdit":{
         "editarPerfil":"Edit profile"

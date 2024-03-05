@@ -51,7 +51,7 @@
       <ng-template>
         <ion-header>
           <ion-toolbar>
-            <ion-title>Detalles</ion-title>
+            <ion-title>{{ 'pilotos.detalles' | translate }}</ion-title>
             <ion-buttons slot="end">
               <ion-button (click)="setOpen(false)">
                 <ion-icon color="danger" name="close-outline" class="close"></ion-icon>
@@ -68,11 +68,11 @@
               </div>
             </ion-col>
             <ion-col>
-              <ion-title class="modal-title"><b>{{ selectedCircuit?.nameCircuit }}</b></ion-title>
+              <ion-title class="modal-title"><b>{{ selectedCircuit?.nameCircuit }}, {{ selectedCircuit?.country }}</b></ion-title>
               <ion-row class="mt-4">
                 <ion-col>
                   <ion-label class="modal-label">
-                    <p class="modal-p">{{ 'circuitos.vueltas' | translate }}: </p>{{ selectedCircuit?.laps }}
+                    <p class="modal-p">{{ 'circuitos.vueltas' | translate }} </p>{{ selectedCircuit?.laps }}
                   </ion-label>
                 </ion-col>
               </ion-row>
@@ -98,4 +98,9 @@
       </ng-template>
     </ion-modal>
   </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="abrirCircuitForm()" color="danger">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

@@ -4,6 +4,7 @@ import Circuit from 'src/app/core/interfaces/circuit.interface';
 import { CircuitsService } from 'src/app/core/services/circuits.service';
 import { ApuestaEditComponent } from '../../components/apuesta-edit/apuesta-edit.component';
 import { ApuestasService } from 'src/app/core/services/apuestas.service';
+import { CircuitosEditComponent } from '../../components/circuitos-edit/circuitos-edit.component';
 
 @Component({
   selector: 'app-circuitos',
@@ -38,12 +39,34 @@ export class CircuitosPage implements OnInit {
   }
 
   onEditCircuit(circuit: Circuit) {
-
+    this.abrirCircuitForm(circuit);
     this.setOpen(false);
   }
 
-  onAddCircuit() {
+  async abrirCircuitForm(circuit?:Circuit) {
+    const modal = await this.modalCtrl.create({
+      component:CircuitosEditComponent,
+      cssClass:"modal-full-right-side",
+      componentProps:{ circuit:circuit },
+    });
+    modal.present();
+    modal.onDidDismiss().then(result=>{
+      if(result && result.data) {
+        switch(result.data.mode) {
+          case 'New':
+            this.circuitsSvc.addCircuit(result.data.circuit);
+            break;
+          case 'Edit':
+            this.circuitsSvc.updateCircuit(result.data.circuit);
+            break;
+          default:
+        }
+      }
+    });
+  }
 
+  onAddCircuit() {
+    this.abrirCircuitForm();
     this.setOpen(false);
   }
 

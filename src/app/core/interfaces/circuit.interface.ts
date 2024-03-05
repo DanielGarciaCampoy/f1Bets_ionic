@@ -6,4 +6,5 @@ export default interface Circuit {
     laps:number;
     length:number;
     picture?:string;
+    pictureFile?:any;
 }
