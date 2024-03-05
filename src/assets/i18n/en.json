@@ -29,7 +29,10 @@
         "escuderia":"Team:",
         "yearBirth":"Birth year:",
         "editar":"Edit",
-        "eliminar":"Delete"
+        "eliminar":"Delete",
+        "img":"Change image",
+        "nombre":"Name:",
+        "add":"Add"
     },
     "circuitos":{
         "vueltas":"Laps:",

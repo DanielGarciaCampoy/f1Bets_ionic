@@ -29,7 +29,10 @@
         "escuderia":"Escudería:",
         "yearBirth":"Año de nacimiento:",
         "editar":"Editar",
-        "eliminar":"Eliminar"
+        "eliminar":"Eliminar",
+        "img":"Cambiar imagen",
+        "nombre":"Nombre:",
+        "add":"Añadir"
     },
     "circuitos":{
         "vueltas":"Vueltas:",

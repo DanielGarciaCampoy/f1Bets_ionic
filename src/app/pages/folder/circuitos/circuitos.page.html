@@ -14,7 +14,7 @@
   </ion-header>
 
   <ion-list>
-    <ion-card *ngFor="let circuit of circuits" class="bordes">
+    <ion-card *ngFor="let circuit of circuits" class="bordes" (click)="setOpen(true, circuit)">
       <ion-row>
         <ion-col>
           <div *ngIf="circuit" class="zoom-div">
@@ -46,6 +46,56 @@
         </ion-col>
       </ion-row>
     </ion-card>
-  </ion-list>
 
+    <ion-modal [isOpen]="isModalOpen" backdropDismiss="false">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Detalles</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="setOpen(false)">
+                <ion-icon color="danger" name="close-outline" class="close"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <ion-row>
+            <ion-col>
+              <div *ngIf="selectedCircuit">
+                <img *ngIf="!selectedCircuit.picture" src="https://ionicframework.com/docs/img/demos/avatar.svg" class="bordes zoom-img">
+                <img *ngIf="selectedCircuit.picture" [src]="selectedCircuit.picture" class="bordes">
+              </div>
+            </ion-col>
+            <ion-col>
+              <ion-title class="modal-title"><b>{{ selectedCircuit?.nameCircuit }}</b></ion-title>
+              <ion-row class="mt-4">
+                <ion-col>
+                  <ion-label class="modal-label">
+                    <p class="modal-p">{{ 'circuitos.vueltas' | translate }}: </p>{{ selectedCircuit?.laps }}
+                  </ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="7">
+                  <ion-label class="modal-label">
+                    <p class="modal-p">{{ 'circuitos.longitud' | translate }}</p>
+                    {{ selectedCircuit?.length }}km
+                  </ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row style="margin-left: 5%; margin-right: 5%; margin-top: 5%;">
+            <ion-col>
+              <ion-button color="warning" class="botones" (click)="onEditCircuit(selectedCircuit)"><ion-icon name="create-outline"></ion-icon>&nbsp;<b>{{ 'pilotos.editar' | translate }}</b></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button color="danger" class="botones" (click)="deleteCircuitAlert()"><ion-icon name="ban-outline"></ion-icon>&nbsp;<b>{{ 'pilotos.eliminar' | translate }}</b></ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+  </ion-list>
 </ion-content>

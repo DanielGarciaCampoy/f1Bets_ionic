@@ -13,20 +13,20 @@
           <input id="fileLoader" type="file" #fileLoader name="files" title="Load Files" hidden>
           <ion-img  *ngIf="currentImage.value" [src]="currentImage$ | async"></ion-img>
           <ion-img *ngIf="!currentImage.value" src="https://ionicframework.com/docs/img/demos/thumbnail.svg"></ion-img>
-          <ion-button expand="full" (click)="changePic(fileLoader, 'file')">Cambiar imagen</ion-button>
+          <ion-button expand="full" (click)="changePic(fileLoader, 'file')" color="warning">{{ 'pilotos.img' | translate }}</ion-button>
         </ion-col>
         <ion-col>
           <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
             <ion-item>
-              <ion-label position="floating">Nombre: </ion-label>
+              <ion-label position="floating">{{ 'pilotos.nombre' | translate }} </ion-label>
               <ion-input type="text" placeholder="Nombre" formControlName="name"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-label position="floating">Año de nacimiento: </ion-label>
+              <ion-label position="floating">{{ 'pilotos.yearBirth' | translate }} </ion-label>
               <ion-input type="number" placeholder="Año de nacimiento" formControlName="yearBirth"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-label position="floating">Escudería: </ion-label>
+              <ion-label position="floating">{{ 'pilotos.escuderia' | translate }} </ion-label>
               <ion-input type="text" placeholder="Escudería" formControlName="team"></ion-input>
             </ion-item>
           </form>
@@ -38,7 +38,9 @@
     <ion-grid>
       <ion-row>
         <ion-col class="ion-text-center">
-          <ion-button [disabled]="!form.valid" (click)="onSubmit()">{{mode=="Edit"?"Editar":"Añadir"}}</ion-button>
+          <ion-button [disabled]="!form.valid" (click)="onSubmit()" color="danger">
+            <p *ngIf="mode=='Edit'">{{  'pilotos.editar' | translate }}</p><p *ngIf="mode!='Edit'">{{  'pilotos.add' | translate }}</p> &nbsp; <ion-icon name="send-outline"></ion-icon>
+          </ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
