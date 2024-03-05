@@ -55,6 +55,8 @@
         "emailVal":"Incorrect email format",
         "passwordVal":"At least 8 characters, a capital letter, a lowercase letter and a number",
         "passwordRep":"Repeat password",
-        "passwordNo":"Passwords doesn't match"
+        "passwordNo":"Passwords doesn't match",
+        "noTienes":"Don't have an account?",
+        "incorrecta":"Email and/or password wrong"
     }
 }

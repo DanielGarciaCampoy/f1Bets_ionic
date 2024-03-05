@@ -34,7 +34,10 @@ export class SigninComponent  implements OnInit {
         console.log(response);
         this.router.navigate(['tabs/home'], {replaceUrl:true});
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        console.log(error);
+        document.getElementById('incorrecta')!.style.display = 'block'
+      })
   }
 
   async register() {

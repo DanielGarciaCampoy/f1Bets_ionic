@@ -55,6 +55,8 @@
         "emailVal":"Formato de email incorrecto",
         "passwordVal":"Al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número",
         "passwordRep":"Repetir contraseña",
-        "passwordNo":"No coincide la contraseña"
+        "passwordNo":"No coincide la contraseña",
+        "noTienes":"¿No tienes cuenta?",
+        "incorrecta":"Correo y/o contraseña incorrectas"
     }
 }

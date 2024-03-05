@@ -17,6 +17,9 @@
             <ion-input (keyup.enter)="form.valid?onSignIn():null" [enterkeyhint]="'enter'" autocomplete="password" type="password" formControlName="password"></ion-input>
           </ion-item>
         </ion-list>
+        <ion-label id="incorrecta" style="color: rgb(255, 70, 70); display: none; margin-top: 5%;">
+          {{ 'login.incorrecta' | translate }}
+        </ion-label>
         <ion-row style="margin-top: 5%;">
           <ion-col>
             <div class="form-button right">
@@ -24,9 +27,14 @@
             </div>
           </ion-col>
           <ion-col>
-            <div>
-              <ion-button (click)="register()" color="danger">{{ 'login.register' | translate }}</ion-button>
-            </div> 
+            <ion-label class="colorGris">
+              {{ 'login.noTienes' | translate }}
+             </ion-label>
+             <div class="form-button right">
+               <ion-button (click)="register()" color="primary" fill="clear">
+                 <small>{{ 'login.register' | translate }}</small>
+               </ion-button>
+             </div>
           </ion-col>
         </ion-row>
           </form>   
