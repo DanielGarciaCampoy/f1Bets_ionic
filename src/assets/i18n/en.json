@@ -53,7 +53,14 @@
         "circuito":"Circuit:",
         "piloto":"Driver:",
         "dinero":"Money to bet:",
-        "apostar":"Bet"
+        "apostar":"Bet",
+        "apuestaRealizada":"Bet made",
+        "apuestaGanada":"Wom bet",
+        "apuestaPerdida":"Lost bet",
+        "hasGanado":"You've won",
+        "hasPerdido":"You've lost",
+        "enEl":"In",
+        "ha":"won:"
     },
     "login":{
         "login":"Log in",

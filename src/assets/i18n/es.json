@@ -53,7 +53,14 @@
         "circuito":"Circuito:",
         "piloto":"Piloto:",
         "dinero":"Dinero a apostar:",
-        "apostar":"Apostar"
+        "apostar":"Apostar",
+        "apuestaRealizada":"Apuesta realizada",
+        "apuestaGanada":"Apuesta ganada",
+        "apuestaPerdida":"Apuesta perdida",
+        "hasGanado":"Has ganado",
+        "hasPerdido":"Has perdido",
+        "enEl":"En el circuito de",
+        "ha":"ha ganado:"
     },
     "login":{
         "login":"Iniciar sesión",
