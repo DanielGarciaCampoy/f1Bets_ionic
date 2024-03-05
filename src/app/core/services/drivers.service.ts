@@ -54,33 +54,18 @@ export class DriversService {
       console.log(error);
     }
   }
-
-  /*uploadImage(file: any):Promise<any>{  
-    return new Promise(async (resolve, reject)=>{
+  
+  public async uploadImage(file: Blob): Promise<any> {
+    return new Promise(async (resolve, reject) => {
       try {
-        const data = await this.firebase.imageUpload(file);  
-        resolve(data);
+        const storageRef = ref(this.storage, 'f1Bets-images/' + Date.now() + '.jpg');
+        await uploadBytes(storageRef, file);
+        const downloadUrl = await getDownloadURL(storageRef);
+        resolve(downloadUrl);
       } catch (error) {
-        resolve(error);
+        reject(error);
       }
     });
-  }*/
-
-  async uploadImage($event: any): Promise<string | undefined> {
-    const file = $event.target.files[0];
-    console.log(file);
-  
-    const imgRef = ref(this.storage, `f1Bets-images/${file.name}`);
-  
-    try {
-      await uploadBytes(imgRef, file);
-      const downloadURL = await getDownloadURL(imgRef);
-      this.getImages();
-      return downloadURL;
-    } catch (error) {
-      console.log(error);
-      return undefined;
-    }
   }
 
   images!: string[];
