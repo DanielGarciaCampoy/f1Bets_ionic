@@ -70,8 +70,8 @@ export class CircuitosPage implements OnInit {
   }
 
   async deleteCircuit(circuit: Circuit) {
-    // const response = await this.circuitsSvc.deleteCircuit(circuit);
-    // console.log(response);
+    const response = await this.circuitsSvc.deleteCircuit(circuit);
+    console.log(response);
     this.setOpen(false);
   }
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DocumentData, DocumentReference, Firestore, addDoc, collection, collectionData, doc, getDoc } from '@angular/fire/firestore';
+import { DocumentData, DocumentReference, Firestore, addDoc, collection, collectionData, deleteDoc, doc, getDoc } from '@angular/fire/firestore';
 import Circuit from '../interfaces/circuit.interface';
 import { Observable, from } from 'rxjs';
 import Apuesta from '../interfaces/apuesta.interface';
@@ -64,6 +64,11 @@ export class CircuitsService {
     } catch (error) {
       throw error;
     }
+  }
+
+  deleteCircuit(circuit: Circuit) {
+    const circuitDocRef = doc(this.firestore, `circuit/${circuit.id}`);
+    return deleteDoc(circuitDocRef);
   }
 
 }
