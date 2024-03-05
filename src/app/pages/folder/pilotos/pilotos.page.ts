@@ -13,6 +13,7 @@ export class PilotosPage implements OnInit {
 
   drivers: Driver[] | undefined;
   selectedDriver: any;
+  edad: any;
 
   isModalOpen = false;
 
@@ -20,6 +21,7 @@ export class PilotosPage implements OnInit {
     this.isModalOpen = isOpen;
     if (driver) {
       this.selectedDriver = driver;
+      this.edad = new Date().getFullYear() - this.selectedDriver.yearBirth
     }
   }
 

@@ -35,7 +35,8 @@
         "add":"Add",
         "detalles":"Details",
         "editPiloto":"Edit driver",
-        "editCircuito":"Edit circuit"
+        "editCircuito":"Edit circuit",
+        "edad":"Years old"
     },
     "circuitos":{
         "vueltas":"Laps:",

@@ -35,7 +35,8 @@
         "add":"Añadir",
         "detalles":"Detalles",
         "editPiloto":"Editar piloto",
-        "editCircuito":"Editar circuito"
+        "editCircuito":"Editar circuito",
+        "edad":"Años"
     },
     "circuitos":{
         "vueltas":"Vueltas:",
