@@ -139,4 +139,19 @@ export class DriversService {
       throw error;
     }
   }
+
+  getRandomDriver(): Promise<Driver> {
+    return new Promise((resolve, reject) => {
+      this.getDrivers().pipe(
+        map(drivers => {
+          const randomIndex = Math.floor(Math.random() * drivers.length);
+          return drivers[randomIndex];
+        })
+      ).subscribe(
+        randomDriver => resolve(randomDriver),
+        error => reject(error)
+      );
+    });
+  }
+
 }

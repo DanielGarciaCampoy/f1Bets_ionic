@@ -5,6 +5,7 @@ import { DocumentData, addDoc, collection } from 'firebase/firestore';
 import Apuesta from '../interfaces/apuesta.interface';
 import { DriversService } from './drivers.service';
 import { FirebaseService } from './firebase/firebase-service';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,8 @@ export class ApuestasService {
   constructor(
     private firestore: Firestore,
     private driverSvc: DriversService,
-    private firebase: FirebaseService
+    private firebase: FirebaseService,
+    private userSvc: UserService
   ) {
     // this.unsubscr = this.firebase.subscribeToCollection('bets', this._apuestasSubject, this.mapAssignment);
     this.unsubscr = this.subscribeToCollection('bets', this._apuestasSubject, this.mapAssignment);
@@ -76,4 +78,17 @@ export class ApuestasService {
     return deleteDoc(apuestaDoc);
   }
 
+  async procesarApuesta(apuesta: Apuesta): Promise<void> {
+    const pilotoAleatorio = await this.driverSvc.getRandomDriver();
+
+      if (apuesta.idDriver === pilotoAleatorio.id) {
+        // apuesta ganada
+        this.userSvc.updateUserMoney(apuesta.betMoney * 23);
+        console.log('Apuesta ganada');
+      } else {
+        // apuesta perdida
+        this.userSvc.updateUserMoney(-apuesta.betMoney);
+        console.log('Apuesta perdida');
+      }
+    }
 }

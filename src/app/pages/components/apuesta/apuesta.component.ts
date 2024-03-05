@@ -69,4 +69,8 @@ export class ApuestaComponent  implements OnInit {
     console.log(response);
   }
 
+  onApostar(apuesta: Apuesta) {
+    this.apuestaSvc.procesarApuesta(apuesta);
+  }
+
 }

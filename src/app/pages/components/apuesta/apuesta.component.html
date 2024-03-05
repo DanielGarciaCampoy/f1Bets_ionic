@@ -11,6 +11,7 @@
         <ion-title>{{ 'apuesta.apuesta' | translate }}</ion-title>
         <ion-title>{{ apuesta.betMoney }}€</ion-title>
         <ion-label>{{ 'apuesta.victoria' | translate }}</ion-label>
+        <ion-button color="success" (click)="onApostar(apuesta)" style="margin-top: 5%;"><ion-icon name="cash-outline"></ion-icon>{{ 'circuitos.apostar' | translate }}</ion-button>
       </ion-col>
       <ion-col>
         <div class="zoom-div">

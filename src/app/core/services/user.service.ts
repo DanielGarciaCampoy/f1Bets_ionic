@@ -6,7 +6,7 @@ import { User, UserLogin, UserRegister } from '../models/user.model';
 import { FirebaseService } from './firebase/firebase-service';
 import { LocalStorageService } from './local-storage.service';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@angular/fire/auth';
-import { DocumentData, Firestore, addDoc, collection, collectionData, deleteDoc, doc, getDocs, query, setDoc, where } from '@angular/fire/firestore';
+import { DocumentData, Firestore, addDoc, collection, collectionData, deleteDoc, doc, getDoc, getDocs, query, setDoc, where } from '@angular/fire/firestore';
 import { updateDoc } from 'firebase/firestore';
 
 
@@ -136,6 +136,43 @@ export class UserService {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  private async getUserBetMoney(): Promise<number | null> {
+    const user = this.auth.currentUser;
+
+    if (user) {
+      const userDoc = await getDoc(doc(this.firestore, 'user', user.uid));
+
+      if (userDoc.exists()) {
+        return userDoc.data()['betMoney'];
+      }
+    }
+
+    return null;
+  }
+
+  async updateUserMoney(betMoney: number): Promise<void> {
+    const user = this.auth.currentUser;
+
+    /*const dineroActual = await this.getUserBetMoney().toPromise();
+
+    const dineroActualizado = dineroActual! + betMoney;*/
+
+    const dineroActual = await this.getUserBetMoney();
+
+    var _user = {
+      uid: user?.uid ?? '',
+      betMoney: dineroActual! + betMoney
+    };
+  
+    try {
+      await updateDoc(doc(this.firestore, 'user', _user.uid), _user);
+    } catch (error) {
+      console.log(error);
+    }
+
+    
   }
 
 }
