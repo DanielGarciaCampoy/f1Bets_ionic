@@ -16,9 +16,25 @@ export class DriversService {
     private firebase: FirebaseService,
     private storage: Storage) {}
 
-  addDriver(driver: Driver) {
+  async addDriver(driver: Driver) {
+    var _driver = {
+      id: driver.id ?? '',
+      name:driver.name,
+      team:driver.team,
+      yearBirth:driver.yearBirth,
+      picture:driver.picture
+    };
     const driverRef = collection(this.firestore, 'driver');
-    return addDoc(driverRef, driver);
+    // subir img
+    if (driver.pictureFile) {
+      try {
+        var id = await this.uploadImage(driver.pictureFile);
+        _driver.picture = id;
+      } catch (uploadError) {
+        console.log('Error al subir la imagen', uploadError);
+      }
+    }
+    return addDoc(driverRef, _driver);
   }
 
   getDrivers(): Observable<Driver[]>{

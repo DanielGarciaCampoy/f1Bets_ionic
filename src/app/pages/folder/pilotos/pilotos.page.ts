@@ -74,7 +74,12 @@ export class PilotosPage implements OnInit {
     this.setOpen(false);
   }
 
-  async abrirDriverForm(driver:Driver) {
+  onAddDriver() {
+    this.abrirDriverForm();
+    this.setOpen(false);
+  }
+
+  async abrirDriverForm(driver?:Driver) {
     const modal = await this.modalCtrl.create({
       component:DriverEditComponent,
       cssClass:"modal-full-right-side",
