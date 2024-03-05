@@ -15,6 +15,20 @@ import { CircuitsService } from 'src/app/core/services/circuits.service';
 })
 export class ApuestaComponent  implements OnInit {
 
+  selectedApuesta: any;
+  selectedPilotoAleatorio:any;
+  selectedApuestaGanada: any;
+  isModalOpen = false;
+  async setOpen(isOpen: boolean, apuesta?: any) {
+    this.isModalOpen = isOpen;
+    if (apuesta) {
+      this.selectedApuesta = apuesta;
+    }
+    const { pilotoAleatorio, apuestaGanada } = await this.apuestaSvc.procesarApuesta(apuesta);
+    this.selectedPilotoAleatorio = pilotoAleatorio;
+    this.selectedApuestaGanada = apuestaGanada;
+  }
+
   @Input('apuesta') set apuesta(a:Apuesta) {
     this._apuesta = a;
     this.loadCircuitAndDriver(a);
@@ -71,6 +85,7 @@ export class ApuestaComponent  implements OnInit {
 
   onApostar(apuesta: Apuesta) {
     this.apuestaSvc.procesarApuesta(apuesta);
+    this.setOpen(true, apuesta);
   }
 
 }

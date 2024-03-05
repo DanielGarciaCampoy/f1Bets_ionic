@@ -33,3 +33,22 @@
     </ion-row>
   </ion-grid>
 </ion-card>
+<ion-modal [isOpen]="isModalOpen" backdropDismiss="false">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Apuesta realizada</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="setOpen(false)">
+            <ion-icon color="danger" name="close-outline" class="close"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      {{ selectedApuesta?.betMoney }}
+      {{ selectedPilotoAleatorio.name }}
+      {{ selectedApuestaGanada }}
+    </ion-content>
+  </ng-template>
+</ion-modal>

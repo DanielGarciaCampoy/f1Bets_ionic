@@ -78,17 +78,22 @@ export class ApuestasService {
     return deleteDoc(apuestaDoc);
   }
 
-  async procesarApuesta(apuesta: Apuesta): Promise<void> {
+  async procesarApuesta(apuesta: Apuesta): Promise<any> {
     const pilotoAleatorio = await this.driverSvc.getRandomDriver();
+    var apuestaGanada = false;
 
       if (apuesta.idDriver === pilotoAleatorio.id) {
         // apuesta ganada
         this.userSvc.updateUserMoney(apuesta.betMoney * 23);
+        apuestaGanada = true;
         console.log('Apuesta ganada');
       } else {
         // apuesta perdida
         this.userSvc.updateUserMoney(-apuesta.betMoney);
+        apuestaGanada = false;
         console.log('Apuesta perdida');
       }
-    }
+
+      return { pilotoAleatorio, apuestaGanada };
+  }
 }
