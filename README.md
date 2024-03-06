@@ -36,5 +36,11 @@ https://f1bets.netlify.app
 
     ![ajustes](https://github.com/DanielGarciaCampoy/f1Bets_ionic/assets/72436388/3b19aa27-ed4a-43e7-8c0b-5c94dbd29a62)
 
+  - **Pilotos**
+    La lista de pilotos, donde se puede hacer click en ellos para ver detalles y ajustes de los mismos, como eliminarlos o editarlos, además de añadir nuevos, en caso de estar registrado como admin.
+
+    ![pilotos](https://github.com/DanielGarciaCampoy/f1Bets_ionic/assets/72436388/bbcd9629-563d-4db9-8c0f-bd0da7f41850)
+
+     
 
 ## Bibliografía
