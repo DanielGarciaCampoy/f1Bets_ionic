@@ -26,5 +26,10 @@ https://f1bets.netlify.app
   ![login](https://github.com/DanielGarciaCampoy/f1Bets_ionic/assets/72436388/2cd70ef5-0eff-4105-bca0-a25bba4bc41b)
   ![register](https://github.com/DanielGarciaCampoy/f1Bets_ionic/assets/72436388/710c7a76-82c0-4bab-9428-2359165a4671)
 
+  - **Home**
+    La primera página que se ve al iniciar sesión, en la que se ve un slider presentando las funciones de la app y acceder a ellas mediantes los tabs de la barra inferior o al popover de usuario
+
+    ![home](https://github.com/DanielGarciaCampoy/f1Bets_ionic/assets/72436388/b7283660-eafd-4f42-9a76-f7fb89b7fa9c)
+
 
 ## Bibliografía
