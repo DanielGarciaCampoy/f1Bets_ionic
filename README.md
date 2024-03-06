@@ -53,3 +53,7 @@ https://f1bets.netlify.app
 
 
 ## Bibliografía
+  - Documentación de Ionic, Angular y Firebase
+  - Documentación de pandas
+  - StackOverflow
+  - Tutoriales de youtube
