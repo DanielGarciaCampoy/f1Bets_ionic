@@ -46,5 +46,10 @@ https://f1bets.netlify.app
 
     ![circuitos](https://github.com/DanielGarciaCampoy/f1Bets_ionic/assets/72436388/dcac961d-edf4-4e38-b72c-0fdf4c839398)
 
+  - **Apuestas**
+    La lista de apuestas en curso, donde se podrá añadir la apuesta que se quiera realizar en el circuito por el piloto con el dinero que se desee siempre que se tenga
+
+    ![apuestas](https://github.com/DanielGarciaCampoy/f1Bets_ionic/assets/72436388/8bad5f00-7a1e-4f98-90fd-f2725dd8ff91)
+
 
 ## Bibliografía
