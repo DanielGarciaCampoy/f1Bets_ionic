@@ -60,7 +60,8 @@
         "hasGanado":"Has ganado",
         "hasPerdido":"Has perdido",
         "enEl":"En el circuito de",
-        "ha":"ha ganado:"
+        "ha":"ha ganado:",
+        "suficiente":"No tienes dinero suficiente"
     },
     "login":{
         "login":"Iniciar sesión",

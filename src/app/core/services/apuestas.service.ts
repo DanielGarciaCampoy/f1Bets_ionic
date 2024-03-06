@@ -81,7 +81,11 @@ export class ApuestasService {
   async procesarApuesta(apuesta: Apuesta): Promise<any> {
     const pilotoAleatorio = await this.driverSvc.getRandomDriver();
     var apuestaGanada = false;
+    var dineroSuficiente = false;
 
+    const dineroActual = await this.userSvc.getUserBetMoney();
+
+    if (dineroActual! > apuesta.betMoney) {
       if (apuesta.idDriver === pilotoAleatorio.id) {
         // apuesta ganada
         this.userSvc.updateUserMoney(apuesta.betMoney * 23);
@@ -91,9 +95,14 @@ export class ApuestasService {
         // apuesta perdida
         this.userSvc.updateUserMoney(-apuesta.betMoney);
         apuestaGanada = false;
+        dineroSuficiente = true;
         console.log('Apuesta perdida');
       }
 
-      return { pilotoAleatorio, apuestaGanada };
+      return { pilotoAleatorio, apuestaGanada, dineroSuficiente };
+    } else {
+      console.log('No hay dinero suficiente');
+      return dineroSuficiente;
+    } 
   }
 }

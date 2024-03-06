@@ -46,7 +46,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
-      <div>
+      <div *ngIf="selectedDineroSuficiente">
         <ion-grid style="text-align: center;">
           <ion-row>
             <ion-title style="margin-bottom: 5%;" *ngIf="selectedApuestaGanada"><b>{{ 'apuesta.apuestaGanada' | translate }}</b></ion-title>
@@ -71,6 +71,9 @@
             <ion-title style="margin-bottom: 5%;" *ngIf="!selectedApuestaGanada"><b>{{ 'apuesta.hasPerdido' | translate }} {{ selectedApuesta.betMoney }}€</b></ion-title>
           </ion-row>
         </ion-grid>
+      </div>
+      <div *ngIf="!selectedDineroSuficiente" style="text-align: center;">
+        <ion-title>{{ 'apuesta.suficiente' | translate }}</ion-title>
       </div>
     </ion-content>
   </ng-template>

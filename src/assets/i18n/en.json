@@ -60,7 +60,8 @@
         "hasGanado":"You've won",
         "hasPerdido":"You've lost",
         "enEl":"In",
-        "ha":"won:"
+        "ha":"won:",
+        "suficiente":"You don't have enough money"
     },
     "login":{
         "login":"Log in",

@@ -18,15 +18,17 @@ export class ApuestaComponent  implements OnInit {
   selectedApuesta: any;
   selectedPilotoAleatorio:any;
   selectedApuestaGanada: any;
+  selectedDineroSuficiente: any;
   isModalOpen = false;
   async setOpen(isOpen: boolean, apuesta?: any) {
     this.isModalOpen = isOpen;
     if (apuesta) {
       this.selectedApuesta = apuesta;
     }
-    const { pilotoAleatorio, apuestaGanada } = await this.apuestaSvc.procesarApuesta(apuesta);
+    const { pilotoAleatorio, apuestaGanada, dineroSuficiente } = await this.apuestaSvc.procesarApuesta(apuesta);
     this.selectedPilotoAleatorio = pilotoAleatorio;
     this.selectedApuestaGanada = apuestaGanada;
+    this.selectedDineroSuficiente = dineroSuficiente;
   }
 
   @Input('apuesta') set apuesta(a:Apuesta) {

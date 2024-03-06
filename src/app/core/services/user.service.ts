@@ -138,7 +138,7 @@ export class UserService {
     }
   }
 
-  private async getUserBetMoney(): Promise<number | null> {
+  async getUserBetMoney(): Promise<number | null> {
     const user = this.auth.currentUser;
 
     if (user) {
