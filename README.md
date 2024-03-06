@@ -18,6 +18,11 @@ https://f1bets.netlify.app
 - Y ya haciendo un ionic s debería lanzar la app en local
 
 ## Tutorial de uso y secciones de la app
+  Las secciones con las que cuenta esta app son:
+
+- Login y regsiter:
+  ![login](https://github.com/DanielGarciaCampoy/f1Bets_ionic/assets/72436388/2cd70ef5-0eff-4105-bca0-a25bba4bc41b)
+  ![register](https://github.com/DanielGarciaCampoy/f1Bets_ionic/assets/72436388/710c7a76-82c0-4bab-9428-2359165a4671)
 
 
 ## Bibliografía
