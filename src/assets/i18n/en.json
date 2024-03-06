@@ -74,5 +74,10 @@
         "passwordNo":"Passwords doesn't match",
         "noTienes":"Don't have an account?",
         "incorrecta":"Email and/or password wrong"
+    },
+    "admin":{
+        "estas":"You're signed in as admin.",
+        "noEstas":"You aren't signed in as admin",
+        "noPuedes":"You can't access to edit and delete because you don't have admin role"
     }
 }

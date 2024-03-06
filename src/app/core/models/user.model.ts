@@ -15,8 +15,5 @@ export interface User{
     email:string;
     betMoney:number;
     picture:string;
-    /*provider:string;
-    token:string,
-    first_name:string,
-    last_name:string*/
+    admin:boolean;
 }

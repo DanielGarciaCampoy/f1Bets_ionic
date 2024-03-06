@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserCredential, signOut } from 'firebase/auth';
-import { BehaviorSubject, Observable, map } from 'rxjs';
+import { BehaviorSubject, Observable, map, take } from 'rxjs';
 import { User, UserLogin, UserRegister } from '../models/user.model';
 import { FirebaseService } from './firebase/firebase-service';
 import { LocalStorageService } from './local-storage.service';
@@ -56,7 +56,8 @@ export class UserService {
           email: data.email,
           picture: "",
           password: "",
-          betMoney: 100
+          betMoney: 100,
+          admin: false
         });
 
         resolve(_user.user.uid);
@@ -117,7 +118,8 @@ export class UserService {
             userName: user['userName'],
             email: user['email'],
             betMoney: user['betMoney'],
-            picture: user['picture']
+            picture: user['picture'],
+            admin: user['admin']
           } as User;
         } else {
           return null;
@@ -172,7 +174,20 @@ export class UserService {
       console.log(error);
     }
 
-    
   }
 
+  public async toggleAdmin() {
+    const currentUser = await this.getUser()
+      .pipe(take(1))
+      .toPromise();
+  
+    if (currentUser && 'admin' in currentUser) {
+      const adminContrario = !currentUser.admin;
+  
+      await updateDoc(doc(this.firestore, 'user', currentUser.uid), { admin: adminContrario });
+      currentUser.admin = adminContrario;
+  
+      this._user.next(currentUser);
+    }
+  }
 }

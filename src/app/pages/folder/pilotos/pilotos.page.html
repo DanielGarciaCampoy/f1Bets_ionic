@@ -74,7 +74,7 @@
               </ion-row>
             </ion-col>
           </ion-row>
-          <ion-row style="margin-left: 5%; margin-right: 5%; margin-top: 5%;">
+          <ion-row style="margin-left: 5%; margin-right: 5%; margin-top: 5%;" *ngIf="(user$ | async)?.admin">
             <ion-col>
               <ion-button color="warning" class="botones" (click)="onEditDriver(selectedDriver)"><ion-icon name="create-outline"></ion-icon>&nbsp;<b>{{ 'pilotos.editar' | translate }}</b></ion-button>
             </ion-col>
@@ -82,12 +82,15 @@
               <ion-button color="danger" class="botones" (click)="deleteDriverAlert()"><ion-icon name="ban-outline"></ion-icon>&nbsp;<b>{{ 'pilotos.eliminar' | translate }}</b></ion-button>
             </ion-col>
           </ion-row>
+          <ion-row style="margin-left: 5%; margin-right: 5%; margin-top: 5%;" *ngIf="!(user$ | async)?.admin">
+            <ion-label>{{ 'admin.noPuedes' | translate }}</ion-label>
+          </ion-row>
         </ion-content>
       </ng-template>
     </ion-modal>
   </ion-list>
   
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="(user$ | async)?.admin">
     <ion-fab-button (click)="abrirDriverForm()" color="danger">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>

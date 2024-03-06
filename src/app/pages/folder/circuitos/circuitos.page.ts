@@ -5,6 +5,9 @@ import { CircuitsService } from 'src/app/core/services/circuits.service';
 import { ApuestaEditComponent } from '../../components/apuesta-edit/apuesta-edit.component';
 import { ApuestasService } from 'src/app/core/services/apuestas.service';
 import { CircuitosEditComponent } from '../../components/circuitos-edit/circuitos-edit.component';
+import { UserService } from 'src/app/core/services/user.service';
+import { Observable } from 'rxjs';
+import { User } from 'src/app/core/models/user.model';
 
 @Component({
   selector: 'app-circuitos',
@@ -12,6 +15,8 @@ import { CircuitosEditComponent } from '../../components/circuitos-edit/circuito
   styleUrls: ['./circuitos.page.scss'],
 })
 export class CircuitosPage implements OnInit {
+
+  user$!: Observable<User | null>;
 
   circuits: Circuit[] | undefined;
   selectedCircuit: any;
@@ -29,13 +34,15 @@ export class CircuitosPage implements OnInit {
     private circuitsSvc: CircuitsService,
     private modalCtrl: ModalController,
     private apuestasSvc: ApuestasService,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private userSvc: UserService
   ) { }
 
   ngOnInit(): void {
     this.circuitsSvc.getCircuits().subscribe(circuits => {
       this.circuits = circuits;
-    })
+    });
+    this.user$ = this.userSvc.getUser();
   }
 
   onEditCircuit(circuit: Circuit) {

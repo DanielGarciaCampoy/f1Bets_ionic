@@ -74,5 +74,10 @@
         "passwordNo":"No coincide la contraseña",
         "noTienes":"¿No tienes cuenta?",
         "incorrecta":"Correo y/o contraseña incorrectas"
+    },
+    "admin":{
+        "estas":"Estás registrado como admin",
+        "noEstas":"No estas registrado como admin",
+        "noPuedes":"No puedes acceder a editar y eliminar porque no estas registrado como admin."
     }
 }

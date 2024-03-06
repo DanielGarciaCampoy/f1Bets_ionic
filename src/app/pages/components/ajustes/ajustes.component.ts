@@ -82,4 +82,7 @@ export class AjustesComponent  implements OnInit {
     });
   }
 
+  onToggleAdmin() {
+    return this.userSvc.toggleAdmin();
+  }
 }
