@@ -53,7 +53,7 @@ https://f1bets.netlify.app
 
 
 ## Bibliografía
-  - Documentación de Ionic, Angular y Firebase
-  - Documentación de pandas
-  - StackOverflow
+  - Documentación de [Ionic](https://ionicframework.com/), [Angular](https://angular.io/) y [Firebase](https://firebase.google.com/?hl=es)
+  - [Documentación de pandas](https://pandas.pydata.org/)
+  - [StackOverflow](https://stackoverflow.com/)
   - Tutoriales de youtube
