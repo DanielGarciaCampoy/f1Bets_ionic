@@ -31,5 +31,10 @@ https://f1bets.netlify.app
 
     ![home](https://github.com/DanielGarciaCampoy/f1Bets_ionic/assets/72436388/b7283660-eafd-4f42-9a76-f7fb89b7fa9c)
 
+  - **Ajustes**
+    El popover que se menciona anteriormente permite que se pueda acceder a ajustes desde cualquier parte de la app, donde están las funciones de cerrar sesión, eliminar la cuenta y editar datos del usuario como el nombre de usuario
+
+    ![ajustes](https://github.com/DanielGarciaCampoy/f1Bets_ionic/assets/72436388/3b19aa27-ed4a-43e7-8c0b-5c94dbd29a62)
+
 
 ## Bibliografía
