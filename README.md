@@ -41,6 +41,10 @@ https://f1bets.netlify.app
 
     ![pilotos](https://github.com/DanielGarciaCampoy/f1Bets_ionic/assets/72436388/bbcd9629-563d-4db9-8c0f-bd0da7f41850)
 
-     
+  - **Circuitos**
+    La lista de circuitos, que funciona igual que la lista de pilotos anteriormente mencionada, función de eliminar, editar, añadir y ver detalles
+
+    ![circuitos](https://github.com/DanielGarciaCampoy/f1Bets_ionic/assets/72436388/dcac961d-edf4-4e38-b72c-0fdf4c839398)
+
 
 ## Bibliografía
