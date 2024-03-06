@@ -10,4 +10,10 @@ https://f1bets.netlify.app
 ## Dependencias
   Para abrir la app en web solo falta poder abrir el enlace que se ofrece anteriormente, pero para abir la app en local, se debe poder abrir programas de ionic con angular con el programa correspondiente y para ver el apartado de pandas y powerbi es necesario tener python instalado para poder generar el archivo .csv correspondiente y PowerBI para ver el archivo de PowerBI
 
+## Manual de instalación
+
+
 ## Tutorial de uso y secciones de la app
+
+
+## Bibliografía
