@@ -20,7 +20,8 @@ https://f1bets.netlify.app
 ## Tutorial de uso y secciones de la app
   Las secciones con las que cuenta esta app son:
 
-- Login y regsiter:
+  ###Login y regsiter:
+  Página para iniciar sesión o registrarse en caso de no tener cuenta
   ![login](https://github.com/DanielGarciaCampoy/f1Bets_ionic/assets/72436388/2cd70ef5-0eff-4105-bca0-a25bba4bc41b)
   ![register](https://github.com/DanielGarciaCampoy/f1Bets_ionic/assets/72436388/710c7a76-82c0-4bab-9428-2359165a4671)
 
